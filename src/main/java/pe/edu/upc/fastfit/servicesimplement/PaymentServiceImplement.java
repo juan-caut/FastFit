@@ -18,6 +18,7 @@ public class PaymentServiceImplement implements IPaymentService {
     public void insert(Payment payment) {
         pR.save(payment);
     }
+
     @Override
     public List<Payment> list() {
         return pR.findAll();
