@@ -15,7 +15,7 @@ public class SwaggerConfig {
     public Docket apiDocket(){
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("pe.edu.pe.fastfit.controllers"))
+                .apis(RequestHandlerSelectors.basePackage("pe.edu.upc.fastfit.controllers"))
                 .paths(PathSelectors.any())
                 .build();
     }
