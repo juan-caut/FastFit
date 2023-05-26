@@ -23,4 +23,14 @@ public class PaymentServiceImplement implements IPaymentService {
     public List<Payment> list() {
         return pR.findAll();
     }
+
+    @Override
+    public void delete(int idPayment) {
+        pR.deleteById(idPayment);
+    }
+
+    @Override
+    public Payment listId(int idPayment) {
+        return pR.findById(idPayment).orElse(new Payment());
+    }
 }

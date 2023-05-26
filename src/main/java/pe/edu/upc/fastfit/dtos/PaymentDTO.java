@@ -10,6 +10,7 @@ public class PaymentDTO {
     private String idAppointment;
     private String cardNumber;
     private LocalDate date;
+
     private String currency;
     private String pago;
 
@@ -62,6 +63,7 @@ public class PaymentDTO {
     public void setDate(LocalDate date) {
         this.date = date;
     }
+
 
     public String getCurrency() {
         return currency;
@@ -118,4 +120,5 @@ public class PaymentDTO {
     public void setEmail(String email) {
         this.email = email;
     }
+
 }
