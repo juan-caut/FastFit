@@ -1,6 +1,5 @@
 package pe.edu.upc.fastfit.dtos;
 
-import javax.persistence.Column;
 import java.time.LocalDate;
 
 public class PaymentDTO {
