@@ -7,5 +7,7 @@ import java.util.List;
 public interface IClientService {
     public void insert(Client client);
     List<Client> list();
+    public void delete(int idClient);
+    public Client listId(int idClient);
 
 }

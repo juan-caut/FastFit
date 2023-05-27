@@ -15,7 +15,8 @@ import java.util.stream.Collectors;
 public class ClientController {
     @Autowired
     private IClientService cS;
-@PostMapping
+
+    @PostMapping
     public void insert(@RequestBody ClientDTO dto) {
         ModelMapper m = new ModelMapper();
         Client c = m.map(dto, Client.class);
@@ -29,4 +30,21 @@ public class ClientController {
             return m.map(x, ClientDTO.class);
         }).collect(Collectors.toList());
     }
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable("id") Integer id){
+        cS.delete(id);
+    }
+    @GetMapping("/{id}")
+    public ClientDTO listId(@PathVariable("id")Integer id){
+        ModelMapper m = new ModelMapper();
+        ClientDTO dto=m.map(cS.listId(id),ClientDTO.class);
+        return dto;
+    }
+    @PutMapping
+    public void update(@RequestBody ClientDTO dto){
+        ModelMapper m = new ModelMapper();
+        Client c=m.map(dto,Client.class);
+        cS.insert(c);
+    }
+
 }
