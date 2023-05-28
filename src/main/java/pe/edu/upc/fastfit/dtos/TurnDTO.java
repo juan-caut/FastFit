@@ -49,4 +49,5 @@ public class TurnDTO {
     public void setPsychologist_id(int psychologist_id) {
         Psychologist_id = psychologist_id;
     }
+    
 }
