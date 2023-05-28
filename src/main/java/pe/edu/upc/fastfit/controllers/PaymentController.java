@@ -17,17 +17,17 @@ public class PaymentController {
     private IPaymentService ps;
 
     @PostMapping
-    public void insert(@RequestBody PaymentDTO dto){
-        ModelMapper m= new ModelMapper();
+    public void insert(@RequestBody PaymentDTO dto) {
+        ModelMapper m = new ModelMapper();
         Payment p = m.map(dto, Payment.class);
         ps.insert(p);
     }
 
     @GetMapping
-    public List<PaymentDTO> list(){
-        return ps.list().stream().map(x->{
-            ModelMapper m=new ModelMapper();
-            return m.map(x,PaymentDTO.class);
+    public List<PaymentDTO> list() {
+        return ps.list().stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, PaymentDTO.class);
         }).collect(Collectors.toList());
     }
 }
