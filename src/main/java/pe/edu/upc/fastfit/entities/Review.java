@@ -31,6 +31,7 @@ public class Review {
         Client_id = client_id;
         Psychologist_id = psychologist_id;
     }
+
     public int getIdReview() {
         return idReview;
     }
