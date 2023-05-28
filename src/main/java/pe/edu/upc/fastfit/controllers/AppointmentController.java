@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.fastfit.dtos.AppointmentDTO;
 import pe.edu.upc.fastfit.entities.Appointment;
-import pe.edu.upc.fastfit.service.IAppointmentService;
+import pe.edu.upc.fastfit.services.IAppointmentService;
 
 import java.util.List;
 import java.util.stream.Collectors;

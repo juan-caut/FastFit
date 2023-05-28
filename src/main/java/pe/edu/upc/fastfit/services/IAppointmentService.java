@@ -1,4 +1,4 @@
-package pe.edu.upc.fastfit.service;
+package pe.edu.upc.fastfit.services;
 
 import pe.edu.upc.fastfit.entities.Appointment;
 

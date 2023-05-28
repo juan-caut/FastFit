@@ -1,10 +1,10 @@
-package pe.edu.upc.fastfit.serviceimplement;
+package pe.edu.upc.fastfit.servicesimplement;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.fastfit.entities.Appointment;
 import pe.edu.upc.fastfit.repositories.IAppointmentRepository;
-import pe.edu.upc.fastfit.service.IAppointmentService;
+import pe.edu.upc.fastfit.services.IAppointmentService;
 
 import java.util.List;
 
