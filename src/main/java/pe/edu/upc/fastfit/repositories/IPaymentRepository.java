@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import pe.edu.upc.fastfit.entities.Payment;
 
 @Repository
-public interface IPaymentRepository extends JpaRepository<Payment, Integer> {
+public interface IPaymentRepository extends JpaRepository<Payment,Integer> {
 }

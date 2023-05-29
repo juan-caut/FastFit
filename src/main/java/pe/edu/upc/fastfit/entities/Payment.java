@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "payment")
+@Table(name = "payments")
 public class Payment {
 
     @Id
@@ -22,6 +22,7 @@ public class Payment {
 
     @Column(name = "date", nullable = false)
     private LocalDate date;
+
 
     @Column(name = "currency", nullable = false)
     private String currency;
@@ -44,8 +45,11 @@ public class Payment {
     @Column(name = "email", nullable = false)
     private String email;
 
+
     public Payment() {
     }
+
+
 
     public Payment(int idPayment, String paymentCode, String idAppointment, String cardNumber, LocalDate date, String currency, String monto, String name, String lastname, String cvv, String expiration, String email) {
         this.idPayment = idPayment;
@@ -61,6 +65,8 @@ public class Payment {
         this.expiration = expiration;
         this.email = email;
     }
+
+
 
     public int getIdPayment() {
         return idPayment;
@@ -101,6 +107,7 @@ public class Payment {
     public void setDate(LocalDate date) {
         this.date = date;
     }
+
 
     public String getCurrency() {
         return currency;
@@ -157,4 +164,6 @@ public class Payment {
     public void setEmail(String email) {
         this.email = email;
     }
+
+
 }

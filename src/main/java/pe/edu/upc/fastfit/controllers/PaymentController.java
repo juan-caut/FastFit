@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/payment")
+@RequestMapping("/payments")
 public class PaymentController {
     @Autowired
     private IPaymentService ps;
@@ -30,4 +30,24 @@ public class PaymentController {
             return m.map(x, PaymentDTO.class);
         }).collect(Collectors.toList());
     }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable("id") Integer id){
+        ps.delete(id);
+    }
+
+    @GetMapping("/{id}")
+    public PaymentDTO listId(@PathVariable("id") Integer id){
+        ModelMapper m= new ModelMapper();
+        PaymentDTO dto = m.map(ps.listId(id),PaymentDTO.class);
+        return dto;
+    }
+
+    @PutMapping
+    public void update (@RequestBody PaymentDTO dto){
+        ModelMapper m= new ModelMapper();
+        Payment p = m.map(dto, Payment.class);
+        ps.insert(p);
+    }
+
 }
