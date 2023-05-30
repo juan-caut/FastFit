@@ -37,5 +37,16 @@ public class GenderController {
     public void delete(@PathVariable("id") Integer id) {
         gS.delete(id);
     }
-
+    @GetMapping("/{id}")
+    public GenderDTO listId(@PathVariable("id") Integer id) {
+        ModelMapper m = new ModelMapper();
+        GenderDTO dto=m.map(gS.listId(id),GenderDTO.class);
+        return dto;
+    }
+    @PutMapping
+    public void update(@RequestBody Gender dto) {
+        ModelMapper m = new ModelMapper();
+        Gender p = m.map(dto, Gender.class);
+        gS.insert(p);
+    }
 }
