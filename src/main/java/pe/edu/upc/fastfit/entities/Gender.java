@@ -16,6 +16,8 @@ public class Gender {
     @Column(name = "abbreviation",length = 255,nullable = false)
     private String abbreviation;
 
+
+
     public int getId() {
         return id;
     }
