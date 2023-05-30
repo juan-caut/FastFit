@@ -3,7 +3,7 @@ package pe.edu.upc.fastfit.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "client")
+@Table(name = "Client")
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
