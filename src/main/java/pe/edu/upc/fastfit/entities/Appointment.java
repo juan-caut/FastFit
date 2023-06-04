@@ -13,13 +13,13 @@ public class Appointment {
     @Column(name = "date", nullable = false)
     private LocalDate date;
     @ManyToOne
-    @JoinColumn(name = "Client_id")
+    @JoinColumn(name = "client")
     private Client client;
     @ManyToOne
-    @JoinColumn(name = "Psychologist_id")
+    @JoinColumn(name = "psychologist")
     private Psychologist psychologist;
     @ManyToOne
-    @JoinColumn(name = "AppointmentStatus_id")
+    @JoinColumn(name = "appointmentStatus")
     private AppointmentStatus appointmentStatus;
 
     public Appointment() {

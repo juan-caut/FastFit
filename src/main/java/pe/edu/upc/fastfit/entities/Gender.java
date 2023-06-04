@@ -1,7 +1,5 @@
 package pe.edu.upc.fastfit.entities;
 
-import net.bytebuddy.dynamic.loading.InjectionClassLoader;
-
 import javax.persistence.*;
 
 @Entity

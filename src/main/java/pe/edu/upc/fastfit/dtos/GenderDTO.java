@@ -1,16 +1,16 @@
 package pe.edu.upc.fastfit.dtos;
 
 public class GenderDTO {
-    private  int idGender;
+    private  int id;
     private  String gender;
     private String abbreviation;
 
-    public int getIdGender() {
-        return idGender;
+    public int getId() {
+        return id;
     }
 
-    public void setIdGender(int idGender) {
-        this.idGender = idGender;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getGender() {

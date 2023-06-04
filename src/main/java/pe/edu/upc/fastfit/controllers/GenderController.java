@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/Genders")
+@RequestMapping("/gender")
 public class GenderController {
     @Autowired
     private IGenderService gS;

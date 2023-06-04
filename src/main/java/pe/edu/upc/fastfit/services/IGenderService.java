@@ -8,6 +8,6 @@ import java.util.List;
 public interface IGenderService {
     public void insert(Gender gender);
     List<Gender>list();
-    public void delete(int idGender);
-    public Gender listId(int idGender);
+    public void delete(int id);
+    public Gender listId(int id);
 }

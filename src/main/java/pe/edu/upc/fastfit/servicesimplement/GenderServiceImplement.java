@@ -26,13 +26,13 @@ public class GenderServiceImplement implements IGenderService {
     }
 
     @Override
-    public void delete(int idGender) {
-        gR.deleteById(idGender);
+    public void delete(int id) {
+        gR.deleteById(id);
     }
 
     @Override
-    public Gender listId(int idGender) {
-        return gR.findById(idGender).orElse(new Gender());
+    public Gender listId(int id) {
+        return gR.findById(id).orElse(new Gender());
     }
 
 }
