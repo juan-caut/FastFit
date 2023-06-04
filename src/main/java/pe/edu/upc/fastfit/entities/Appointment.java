@@ -12,23 +12,25 @@ public class Appointment {
 
     @Column(name = "date", nullable = false)
     private LocalDate date;
-    @Column(name = "Client_id", length = 30, nullable = false)
-    private int Client_id;
-    @Column(name = "Psychologist_id", length = 30, nullable = false)
-    private int Psychologist_id;
-    @Column(name = "AppointmentStatus_id", length = 30, nullable = false)
-    private int AppointmentStatus_id;
+    @ManyToOne
+    @JoinColumn(name = "Client_id")
+    private Client client;
+    @ManyToOne
+    @JoinColumn(name = "Psychologist_id")
+    private Psychologist psychologist;
+    @ManyToOne
+    @JoinColumn(name = "AppointmentStatus_id")
+    private AppointmentStatus appointmentStatus;
 
     public Appointment() {
     }
 
-    public Appointment(int id, LocalDate date, int Client_id, int Psychologist_id, int AppointmentStatus_id) {
-        this.idAppointment = id;
+    public Appointment(int idAppointment, LocalDate date, Client client, Psychologist psychologist, AppointmentStatus appointmentStatus) {
+        this.idAppointment = idAppointment;
         this.date = date;
-        this.AppointmentStatus_id = AppointmentStatus_id;
-        this.Psychologist_id = Psychologist_id;
-        this.Client_id = Client_id;
-
+        this.client = client;
+        this.psychologist = psychologist;
+        this.appointmentStatus = appointmentStatus;
     }
 
     public int getIdAppointment() {
@@ -47,27 +49,27 @@ public class Appointment {
         this.date = date;
     }
 
-    public int getClient_id() {
-        return Client_id;
+    public Client getClient() {
+        return client;
     }
 
-    public void setClient_id(int client_id) {
-        Client_id = client_id;
+    public void setClient(Client client) {
+        this.client = client;
     }
 
-    public int getPsychologist_id() {
-        return Psychologist_id;
+    public Psychologist getPsychologist() {
+        return psychologist;
     }
 
-    public void setPsychologist_id(int psychologist_id) {
-        Psychologist_id = psychologist_id;
+    public void setPsychologist(Psychologist psychologist) {
+        this.psychologist = psychologist;
     }
 
-    public int getAppointmentStatus_id() {
-        return AppointmentStatus_id;
+    public AppointmentStatus getAppointmentStatus() {
+        return appointmentStatus;
     }
 
-    public void setAppointmentStatus_id(int appointmentStatus_id) {
-        AppointmentStatus_id = appointmentStatus_id;
+    public void setAppointmentStatus(AppointmentStatus appointmentStatus) {
+        this.appointmentStatus = appointmentStatus;
     }
 }

@@ -1,17 +1,22 @@
 package pe.edu.upc.fastfit.dtos;
 
-import javax.persistence.Column;
+import pe.edu.upc.fastfit.entities.AppointmentStatus;
+import pe.edu.upc.fastfit.entities.Client;
+import pe.edu.upc.fastfit.entities.Psychologist;
+
 import java.time.LocalDate;
 
 public class AppointmentDTO {
     private int idAppointment;
     private LocalDate date;
-    private int Client_id;
 
-    private int Psychologist_id;
+    private Client client;
 
-    private int AppointmentStatus_id;
+    private Psychologist psychologist;
 
+    private AppointmentStatus appointmentStatus;
+
+    //getters and setters
     public int getIdAppointment() {
         return idAppointment;
     }
@@ -28,27 +33,27 @@ public class AppointmentDTO {
         this.date = date;
     }
 
-    public int getClient_id() {
-        return Client_id;
+    public Client getClient() {
+        return client;
     }
 
-    public void setClient_id(int client_id) {
-        Client_id = client_id;
+    public void setClient(Client client) {
+        this.client = client;
     }
 
-    public int getPsychologist_id() {
-        return Psychologist_id;
+    public Psychologist getPsychologist() {
+        return psychologist;
     }
 
-    public void setPsychologist_id(int psychologist_id) {
-        Psychologist_id = psychologist_id;
+    public void setPsychologist(Psychologist psychologist) {
+        this.psychologist = psychologist;
     }
 
-    public int getAppointmentStatus_id() {
-        return AppointmentStatus_id;
+    public AppointmentStatus getAppointmentStatus() {
+        return appointmentStatus;
     }
 
-    public void setAppointmentStatus_id(int appointmentStatus_id) {
-        AppointmentStatus_id = appointmentStatus_id;
+    public void setAppointmentStatus(AppointmentStatus appointmentStatus) {
+        this.appointmentStatus = appointmentStatus;
     }
 }
