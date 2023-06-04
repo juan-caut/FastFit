@@ -15,7 +15,7 @@ public class Payment {
     private String paymentCode;
 
     @Column(name = "idAppointment", nullable = false)
-    private String idAppointment;
+    private int idAppointment;
 
     @Column(name = "cardNumber", length = 20, nullable = false)
     private String cardNumber;
@@ -23,12 +23,11 @@ public class Payment {
     @Column(name = "date", nullable = false)
     private LocalDate date;
 
-
     @Column(name = "currency", nullable = false)
     private String currency;
 
     @Column(name = "pago", nullable = false)
-    private String pago;
+    private float pago;
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -37,10 +36,10 @@ public class Payment {
     private String lastname;
 
     @Column(name = "cvv", nullable = false)
-    private String  cvv;
+    private int  cvv;
 
     @Column(name = "expiration", nullable = false)
-    private String expiration;
+    private LocalDate expiration;
 
     @Column(name = "email", nullable = false)
     private String email;
@@ -49,9 +48,8 @@ public class Payment {
     public Payment() {
     }
 
+    public Payment(int idPayment, String paymentCode, int idAppointment, String cardNumber, LocalDate date, String currency, float pago, String name, String lastname, int cvv, LocalDate expiration, String email) {
 
-
-    public Payment(int idPayment, String paymentCode, String idAppointment, String cardNumber, LocalDate date, String currency, String monto, String name, String lastname, String cvv, String expiration, String email) {
         this.idPayment = idPayment;
         this.paymentCode = paymentCode;
         this.idAppointment = idAppointment;
@@ -65,8 +63,6 @@ public class Payment {
         this.expiration = expiration;
         this.email = email;
     }
-
-
 
     public int getIdPayment() {
         return idPayment;
@@ -84,11 +80,11 @@ public class Payment {
         this.paymentCode = paymentCode;
     }
 
-    public String getIdAppointment() {
+    public int getIdAppointment() {
         return idAppointment;
     }
 
-    public void setIdAppointment(String idAppointment) {
+    public void setIdAppointment(int idAppointment) {
         this.idAppointment = idAppointment;
     }
 
@@ -108,7 +104,6 @@ public class Payment {
         this.date = date;
     }
 
-
     public String getCurrency() {
         return currency;
     }
@@ -117,11 +112,11 @@ public class Payment {
         this.currency = currency;
     }
 
-    public String getPago() {
+    public float getPago() {
         return pago;
     }
 
-    public void setPago(String pago) {
+    public void setPago(float pago) {
         this.pago = pago;
     }
 
@@ -141,19 +136,19 @@ public class Payment {
         this.lastname = lastname;
     }
 
-    public String getCvv() {
+    public int getCvv() {
         return cvv;
     }
 
-    public void setCvv(String cvv) {
+    public void setCvv(int cvv) {
         this.cvv = cvv;
     }
 
-    public String getExpiration() {
+    public LocalDate getExpiration() {
         return expiration;
     }
 
-    public void setExpiration(String expiration) {
+    public void setExpiration(LocalDate expiration) {
         this.expiration = expiration;
     }
 
@@ -164,6 +159,4 @@ public class Payment {
     public void setEmail(String email) {
         this.email = email;
     }
-
-
 }
