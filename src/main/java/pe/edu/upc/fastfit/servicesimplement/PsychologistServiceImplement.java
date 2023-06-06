@@ -37,4 +37,9 @@ public class PsychologistServiceImplement implements IPsychologistService {
         return pR.findBySpecialtyPsico(Specialty);
     }
 
+    @Override
+    public List<Psychologist> finByGender(String gender) {
+        return pR.finByGender(gender);
+    }
+
 }

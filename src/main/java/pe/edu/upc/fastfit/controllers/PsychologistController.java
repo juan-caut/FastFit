@@ -56,4 +56,11 @@ public class PsychologistController {
             return m.map(x, PsychologistDTO.class);
         }).collect(Collectors.toList());
     }
+    @PostMapping("/buscarporGender")
+    public List<PsychologistDTO> fndGenderPSY( String gender) {
+        return pS.finByGender(gender).stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, PsychologistDTO.class);
+        }).collect(Collectors.toList());
+    }
 }

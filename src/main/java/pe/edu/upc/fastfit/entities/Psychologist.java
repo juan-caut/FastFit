@@ -27,11 +27,11 @@ public class Psychologist {
     @Column(name = "UserStatus_Id", nullable = false)
     private int UserStatus_Id;
     @ManyToOne
-    @JoinColumn(name = "idgender", nullable = false)
+    @JoinColumn(name = "idgender")
     private Gender gender;
 
     @ManyToOne
-    @JoinColumn(name = "idSpecialty", nullable = false)
+    @JoinColumn(name = "idSpecialty")
     private Specialty specialty;
 
     public Psychologist() {

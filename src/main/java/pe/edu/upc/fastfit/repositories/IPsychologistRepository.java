@@ -15,5 +15,7 @@ public interface IPsychologistRepository extends JpaRepository<Psychologist,Inte
     @Query("from Psychologist p where p.specialty.idSpecialty=:Specialty")
     List<Psychologist> findBySpecialtyPsico(@Param("Specialty") String Specialty);
 
+    @Query("from Psychologist p where p.gender.abbreviation=:gender")
+    List<Psychologist> finByGender(@Param("gender") String gender);
 
 }

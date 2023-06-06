@@ -1,5 +1,6 @@
 package pe.edu.upc.fastfit.dtos;
 
+import pe.edu.upc.fastfit.entities.Gender;
 import pe.edu.upc.fastfit.entities.Specialty;
 
 public class PsychologistDTO {
@@ -24,7 +25,7 @@ public class PsychologistDTO {
 
     private int UserStatus_Id;
 
-    private String Gender_Id;
+    private Gender Gender;
 
     private Specialty specialty;
 
@@ -108,12 +109,12 @@ public class PsychologistDTO {
         UserStatus_Id = userStatus_Id;
     }
 
-    public String getGender_Id() {
-        return Gender_Id;
+    public pe.edu.upc.fastfit.entities.Gender getGender() {
+        return Gender;
     }
 
-    public void setGender_Id(String gender_Id) {
-        Gender_Id = gender_Id;
+    public void setGender(pe.edu.upc.fastfit.entities.Gender gender) {
+        Gender = gender;
     }
 
     public Specialty getSpecialty() {
