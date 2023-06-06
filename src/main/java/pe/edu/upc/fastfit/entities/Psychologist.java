@@ -1,8 +1,9 @@
 package pe.edu.upc.fastfit.entities;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name="Psychologists")
+@Table(name = "Psychologists")
 public class Psychologist {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,17 +26,18 @@ public class Psychologist {
     private int rating;
     @Column(name = "UserStatus_Id", nullable = false)
     private int UserStatus_Id;
-    @Column(name = "Gender_Id", length = 14, nullable = false)
-    private String Gender_Id;
+    @ManyToOne
+    @JoinColumn(name = "idgender", nullable = false)
+    private Gender gender;
 
     @ManyToOne
-    @JoinColumn(name= "idSpecialty", nullable = false)
+    @JoinColumn(name = "idSpecialty", nullable = false)
     private Specialty specialty;
 
     public Psychologist() {
     }
 
-    public Psychologist(int idPsi, String userName, String password, String names, String lastNames, String emailAddress, String phoneNumber, int age, int rating, int userStatus_Id, String gender_Id, Specialty specialty) {
+    public Psychologist(int idPsi, String userName, String password, String names, String lastNames, String emailAddress, String phoneNumber, int age, int rating, int userStatus_Id, Gender gender, Specialty specialty) {
         this.idPsi = idPsi;
         this.userName = userName;
         this.password = password;
@@ -46,7 +48,7 @@ public class Psychologist {
         this.age = age;
         this.rating = rating;
         UserStatus_Id = userStatus_Id;
-        Gender_Id = gender_Id;
+        this.gender = gender;
         this.specialty = specialty;
     }
 
@@ -130,12 +132,12 @@ public class Psychologist {
         UserStatus_Id = userStatus_Id;
     }
 
-    public String getGender_Id() {
-        return Gender_Id;
+    public Gender getGender() {
+        return gender;
     }
 
-    public void setGender_Id(String gender_Id) {
-        Gender_Id = gender_Id;
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 
     public Specialty getSpecialty() {
