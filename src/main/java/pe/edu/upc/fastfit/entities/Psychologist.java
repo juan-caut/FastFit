@@ -23,26 +23,30 @@ public class Psychologist {
     private int Age;
     @Column(name = "rating", length = 4, nullable = false)
     private int rating;
-    @Column(name = "UserStatus_Id", length = 4, nullable = false)
-    private int UserStatus_Id;
+    @ManyToOne
+    @JoinColumn(name = "idUS", nullable = false)
+    private UserStatus userStatus;
     @Column(name = "Speciality_Id", length = 4, nullable = false)
     private int Speciality_Id;
     @Column(name = "Gender_Id", length = 4, nullable = false)
     private String Gender_Id;
 
-    public Psychologist(int idPsi, String userName, String password, String names, String lastNames, String emailAddress, String phoneNumber, int age, int rating, int userStatus_Id, int speciality_Id, String gender_Id) {
+    public Psychologist() {
+    }
+
+    public Psychologist(int idPsi, String userName, String password, String names, String lastNames, String emailAddress, String phoneNumber, int age, int rating, UserStatus userStatus, int speciality_Id, String gender_Id) {
         this.idPsi = idPsi;
-        this.UserName = userName;
-        this.Password = password;
-        this.Names = names;
-        this.LastNames = lastNames;
-        this.EmailAddress = emailAddress;
-        this.PhoneNumber = phoneNumber;
-        this.Age = age;
+        UserName = userName;
+        Password = password;
+        Names = names;
+        LastNames = lastNames;
+        EmailAddress = emailAddress;
+        PhoneNumber = phoneNumber;
+        Age = age;
         this.rating = rating;
-        this.UserStatus_Id = userStatus_Id;
-        this.Speciality_Id = speciality_Id;
-        this.Gender_Id = gender_Id;
+        this.userStatus = userStatus;
+        Speciality_Id = speciality_Id;
+        Gender_Id = gender_Id;
     }
 
     public int getIdPsi() {
@@ -117,12 +121,12 @@ public class Psychologist {
         this.rating = rating;
     }
 
-    public int getUserStatus_Id() {
-        return UserStatus_Id;
+    public UserStatus getUserStatus() {
+        return userStatus;
     }
 
-    public void setUserStatus_Id(int userStatus_Id) {
-        UserStatus_Id = userStatus_Id;
+    public void setUserStatus(UserStatus userStatus) {
+        this.userStatus = userStatus;
     }
 
     public int getSpeciality_Id() {
@@ -139,10 +143,6 @@ public class Psychologist {
 
     public void setGender_Id(String gender_Id) {
         Gender_Id = gender_Id;
-    }
-
-    public Psychologist(){
-
     }
 }
 

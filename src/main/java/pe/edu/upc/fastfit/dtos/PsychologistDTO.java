@@ -1,5 +1,7 @@
 package pe.edu.upc.fastfit.dtos;
 
+import pe.edu.upc.fastfit.entities.UserStatus;
+
 import java.time.LocalDate;
 public class PsychologistDTO {
 
@@ -12,7 +14,7 @@ public class PsychologistDTO {
     private String PhoneNumber;
     private int Age;
     private int rating;
-    private int UserStatus_Id;
+    private UserStatus userStatus;
     private int Speciality_Id;
     private String Gender_Id;
 
@@ -88,12 +90,12 @@ public class PsychologistDTO {
         this.rating = rating;
     }
 
-    public int getUserStatus_Id() {
-        return UserStatus_Id;
+    public UserStatus getUserStatus() {
+        return userStatus;
     }
 
-    public void setUserStatus_Id(int userStatus_Id) {
-        UserStatus_Id = userStatus_Id;
+    public void setUserStatus(UserStatus userStatus) {
+        this.userStatus = userStatus;
     }
 
     public int getSpeciality_Id() {
