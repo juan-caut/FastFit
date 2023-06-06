@@ -5,21 +5,27 @@ import java.time.LocalDate;
 public class PaymentDTO {
 
     private int idPayment;
+
     private String paymentCode;
-    private String idAppointment;
+
+    private int idAppointment;
+
     private String cardNumber;
+
     private LocalDate date;
 
     private String currency;
-    private String pago;
+
+    private float pago;
 
     private String name;
 
+
     private String lastname;
 
-    private String  cvv;
+    private int  cvv;
 
-    private String expiration;
+    private LocalDate expiration;
 
     private String email;
 
@@ -39,11 +45,11 @@ public class PaymentDTO {
         this.paymentCode = paymentCode;
     }
 
-    public String getIdAppointment() {
+    public int getIdAppointment() {
         return idAppointment;
     }
 
-    public void setIdAppointment(String idAppointment) {
+    public void setIdAppointment(int idAppointment) {
         this.idAppointment = idAppointment;
     }
 
@@ -63,7 +69,6 @@ public class PaymentDTO {
         this.date = date;
     }
 
-
     public String getCurrency() {
         return currency;
     }
@@ -72,11 +77,11 @@ public class PaymentDTO {
         this.currency = currency;
     }
 
-    public String getPago() {
+    public float getPago() {
         return pago;
     }
 
-    public void setPago(String pago) {
+    public void setPago(float pago) {
         this.pago = pago;
     }
 
@@ -96,19 +101,19 @@ public class PaymentDTO {
         this.lastname = lastname;
     }
 
-    public String getCvv() {
+    public int getCvv() {
         return cvv;
     }
 
-    public void setCvv(String cvv) {
+    public void setCvv(int cvv) {
         this.cvv = cvv;
     }
 
-    public String getExpiration() {
+    public LocalDate getExpiration() {
         return expiration;
     }
 
-    public void setExpiration(String expiration) {
+    public void setExpiration(LocalDate expiration) {
         this.expiration = expiration;
     }
 
@@ -119,5 +124,4 @@ public class PaymentDTO {
     public void setEmail(String email) {
         this.email = email;
     }
-
 }

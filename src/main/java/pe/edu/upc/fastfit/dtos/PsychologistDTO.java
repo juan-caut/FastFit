@@ -1,20 +1,32 @@
 package pe.edu.upc.fastfit.dtos;
 
-import java.time.LocalDate;
+import pe.edu.upc.fastfit.entities.Specialty;
+
 public class PsychologistDTO {
 
     private int idPsi;
-    private String UserName;
-    private String Password;
-    private String Names;
-    private String LastNames;
-    private String EmailAddress;
-    private String PhoneNumber;
-    private int Age;
+
+    private String userName;
+
+    private String password;
+
+    private String names;
+
+    private String lastNames;
+
+    private String emailAddress;
+
+    private String phoneNumber;
+
+    private int age;
+
     private int rating;
+
     private int UserStatus_Id;
-    private int Speciality_Id;
+
     private String Gender_Id;
+
+    private Specialty specialty;
 
     public int getIdPsi() {
         return idPsi;
@@ -25,59 +37,59 @@ public class PsychologistDTO {
     }
 
     public String getUserName() {
-        return UserName;
+        return userName;
     }
 
     public void setUserName(String userName) {
-        UserName = userName;
+        this.userName = userName;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
 
     public String getNames() {
-        return Names;
+        return names;
     }
 
     public void setNames(String names) {
-        Names = names;
+        this.names = names;
     }
 
     public String getLastNames() {
-        return LastNames;
+        return lastNames;
     }
 
     public void setLastNames(String lastNames) {
-        LastNames = lastNames;
+        this.lastNames = lastNames;
     }
 
     public String getEmailAddress() {
-        return EmailAddress;
+        return emailAddress;
     }
 
     public void setEmailAddress(String emailAddress) {
-        EmailAddress = emailAddress;
+        this.emailAddress = emailAddress;
     }
 
     public String getPhoneNumber() {
-        return PhoneNumber;
+        return phoneNumber;
     }
 
     public void setPhoneNumber(String phoneNumber) {
-        PhoneNumber = phoneNumber;
+        this.phoneNumber = phoneNumber;
     }
 
     public int getAge() {
-        return Age;
+        return age;
     }
 
     public void setAge(int age) {
-        Age = age;
+        this.age = age;
     }
 
     public int getRating() {
@@ -96,19 +108,19 @@ public class PsychologistDTO {
         UserStatus_Id = userStatus_Id;
     }
 
-    public int getSpeciality_Id() {
-        return Speciality_Id;
-    }
-
-    public void setSpeciality_Id(int speciality_Id) {
-        Speciality_Id = speciality_Id;
-    }
-
     public String getGender_Id() {
         return Gender_Id;
     }
 
     public void setGender_Id(String gender_Id) {
         Gender_Id = gender_Id;
+    }
+
+    public Specialty getSpecialty() {
+        return specialty;
+    }
+
+    public void setSpecialty(Specialty specialty) {
+        this.specialty = specialty;
     }
 }

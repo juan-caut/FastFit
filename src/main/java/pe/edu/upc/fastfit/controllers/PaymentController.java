@@ -44,7 +44,7 @@ public class PaymentController {
     }
 
     @PutMapping
-    public void update (@RequestBody PaymentDTO dto){
+    public void update(@RequestBody PaymentDTO dto){
         ModelMapper m= new ModelMapper();
         Payment p = m.map(dto, Payment.class);
         ps.insert(p);
