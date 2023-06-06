@@ -19,7 +19,7 @@ public class Appointment {
     @JoinColumn(name = "psychologist")
     private Psychologist psychologist;
     @ManyToOne
-    @JoinColumn(name = "appointmentstatus")
+    @JoinColumn(name = "idAppStatus")
     private AppointmentStatus appointmentstatus;
 
     public Appointment() {

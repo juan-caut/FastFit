@@ -7,18 +7,18 @@ import javax.persistence.*;
 public class AppointmentStatus {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int idAppStatus;
     @Column(name = "status", length = 255, nullable = false)
     private String status;
     @Column(name = "description", length = 255, nullable = false)
     private String description;
 
-    public int getId() {
-        return id;
+    public int getIdAppStatus() {
+        return idAppStatus;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdAppStatus(int id) {
+        this.idAppStatus = id;
     }
 
     public String getStatus() {
