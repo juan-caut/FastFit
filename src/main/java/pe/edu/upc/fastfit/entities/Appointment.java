@@ -19,8 +19,8 @@ public class Appointment {
     @JoinColumn(name = "psychologist")
     private Psychologist psychologist;
     @ManyToOne
-    @JoinColumn(name = "appointmentStatus")
-    private AppointmentStatus appointmentStatus;
+    @JoinColumn(name = "appointmentstatus")
+    private AppointmentStatus appointmentstatus;
 
     public Appointment() {
     }
@@ -30,7 +30,7 @@ public class Appointment {
         this.date = date;
         this.client = client;
         this.psychologist = psychologist;
-        this.appointmentStatus = appointmentStatus;
+        this.appointmentstatus = appointmentStatus;
     }
 
     public int getIdAppointment() {
@@ -66,10 +66,10 @@ public class Appointment {
     }
 
     public AppointmentStatus getAppointmentStatus() {
-        return appointmentStatus;
+        return appointmentstatus;
     }
 
     public void setAppointmentStatus(AppointmentStatus appointmentStatus) {
-        this.appointmentStatus = appointmentStatus;
+        this.appointmentstatus = appointmentStatus;
     }
 }

@@ -8,6 +8,8 @@ import pe.edu.upc.fastfit.dtos.AppointmentDTO;
 import pe.edu.upc.fastfit.entities.Appointment;
 import pe.edu.upc.fastfit.services.IAppointmentService;
 
+import javax.xml.crypto.Data;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -53,6 +55,21 @@ public class AppointmentController {
         Appointment p = m.map(dto, Appointment.class);
         aS.insert(p);
     }
+    @PostMapping("/buscarfecha")
+    public List<AppointmentDTO> buscarfecha(LocalDate startDate) {
+        return aS.buscar_Fecha(startDate).stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, AppointmentDTO.class);
+        }).collect(Collectors.toList());
 
+    }
+    @PostMapping("/buscarxid")
+    public List<AppointmentDTO> buscarxid(int startid, int endid) {
+        return aS.buscarxid(startid, endid).stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, AppointmentDTO.class);
+        }).collect(Collectors.toList());
+
+    }
 
 }

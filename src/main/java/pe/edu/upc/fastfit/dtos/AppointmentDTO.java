@@ -17,6 +17,7 @@ public class AppointmentDTO {
     private AppointmentStatus appointmentStatus;
 
     //getters and setters
+
     public int getIdAppointment() {
         return idAppointment;
     }
