@@ -42,4 +42,9 @@ public class PsychologistServiceImplement implements IPsychologistService {
         return pR.finByGender(gender);
     }
 
+    @Override
+    public List<Psychologist> findByAgePsychologist(int Age) {
+        return pR.findByAgePsychologist(Age);
+    }
+
 }
