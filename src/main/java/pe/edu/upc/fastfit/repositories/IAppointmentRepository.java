@@ -10,10 +10,13 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface IAppointmentRepository extends JpaRepository<Appointment, Integer> {
+    //Leonardo LLiuya (1)
     @Query("SELECT a from Appointment  a where  a.idAppointment BETWEEN :startid and :endid")
-    List<Appointment>buscarid(@Param("startid") int startid,@Param("endid")int endid);
+    List<Appointment> buscarid(@Param("startid") int startid, @Param("endid") int endid);
+
+    //Leonardo LLiuya (2)
     @Query("from Appointment v where v.date =:fecha")
-    List<Appointment>buscardate(@Param("fecha") LocalDate fecha);
+    List<Appointment> buscardate(@Param("fecha") LocalDate fecha);
 
 
 }
