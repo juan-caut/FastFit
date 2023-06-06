@@ -1,52 +1,57 @@
 package pe.edu.upc.fastfit.entities;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name="Psychologists")
+@Table(name = "Psychologists")
 public class Psychologist {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idPsi;
-    @Column(name = "UserName", length = 25, nullable = false)
-    private String UserName;
-    @Column(name = "Password", length = 20, nullable = false)
-    private String Password;
-    @Column(name = "Names", length = 30, nullable = false)
-    private String Names;
-    @Column(name = "LastNames", length = 30, nullable = false)
-    private String LastNames;
-    @Column(name = "EmailAddress", length = 25, nullable = false)
-    private String EmailAddress;
-    @Column(name = "PhoneNumber", length = 9, nullable = false)
-    private String PhoneNumber;
-    @Column(name = "Age", length = 3, nullable = false)
-    private int Age;
-    @Column(name = "rating", length = 4, nullable = false)
+    @Column(name = "userName", length = 25, nullable = false)
+    private String userName;
+    @Column(name = "password", length = 20, nullable = false)
+    private String password;
+    @Column(name = "names", length = 30, nullable = false)
+    private String names;
+    @Column(name = "lastNames", length = 30, nullable = false)
+    private String lastNames;
+    @Column(name = "emailAddress", length = 25, nullable = false)
+    private String emailAddress;
+    @Column(name = "phoneNumber", length = 9, nullable = false)
+    private String phoneNumber;
+    @Column(name = "age", nullable = false)
+    private int age;
+    @Column(name = "rating", nullable = false)
     private int rating;
     @ManyToOne
     @JoinColumn(name = "idUS", nullable = false)
     private UserStatus userStatus;
-    @Column(name = "Speciality_Id", length = 4, nullable = false)
-    private int Speciality_Id;
-    @Column(name = "Gender_Id", length = 4, nullable = false)
-    private String Gender_Id;
+    @ManyToOne
+    @JoinColumn(name = "idgender")
+    private Gender gender;
+
+    @ManyToOne
+    @JoinColumn(name = "idSpecialty")
+    private Specialty specialty;
 
     public Psychologist() {
+
     }
 
-    public Psychologist(int idPsi, String userName, String password, String names, String lastNames, String emailAddress, String phoneNumber, int age, int rating, UserStatus userStatus, int speciality_Id, String gender_Id) {
+    public Psychologist(int idPsi, String userName, String password, String names, String lastNames, String emailAddress, String phoneNumber, int age, int rating, UserStatus userStatus, Gender gender, Specialty specialty) {
         this.idPsi = idPsi;
-        UserName = userName;
-        Password = password;
-        Names = names;
-        LastNames = lastNames;
-        EmailAddress = emailAddress;
-        PhoneNumber = phoneNumber;
-        Age = age;
+        this.userName = userName;
+        this.password = password;
+        this.names = names;
+        this.lastNames = lastNames;
+        this.emailAddress = emailAddress;
+        this.phoneNumber = phoneNumber;
+        this.age = age;
         this.rating = rating;
         this.userStatus = userStatus;
-        Speciality_Id = speciality_Id;
-        Gender_Id = gender_Id;
+        this.gender = gender;
+        this.specialty = specialty;
     }
 
     public int getIdPsi() {
@@ -58,59 +63,59 @@ public class Psychologist {
     }
 
     public String getUserName() {
-        return UserName;
+        return userName;
     }
 
     public void setUserName(String userName) {
-        UserName = userName;
+        this.userName = userName;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
 
     public String getNames() {
-        return Names;
+        return names;
     }
 
     public void setNames(String names) {
-        Names = names;
+        this.names = names;
     }
 
     public String getLastNames() {
-        return LastNames;
+        return lastNames;
     }
 
     public void setLastNames(String lastNames) {
-        LastNames = lastNames;
+        this.lastNames = lastNames;
     }
 
     public String getEmailAddress() {
-        return EmailAddress;
+        return emailAddress;
     }
 
     public void setEmailAddress(String emailAddress) {
-        EmailAddress = emailAddress;
+        this.emailAddress = emailAddress;
     }
 
     public String getPhoneNumber() {
-        return PhoneNumber;
+        return phoneNumber;
     }
 
     public void setPhoneNumber(String phoneNumber) {
-        PhoneNumber = phoneNumber;
+        this.phoneNumber = phoneNumber;
     }
 
     public int getAge() {
-        return Age;
+        return age;
     }
 
     public void setAge(int age) {
-        Age = age;
+        this.age = age;
     }
 
     public int getRating() {
@@ -129,20 +134,20 @@ public class Psychologist {
         this.userStatus = userStatus;
     }
 
-    public int getSpeciality_Id() {
-        return Speciality_Id;
+    public Gender getGender() {
+        return gender;
     }
 
-    public void setSpeciality_Id(int speciality_Id) {
-        Speciality_Id = speciality_Id;
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 
-    public String getGender_Id() {
-        return Gender_Id;
+    public Specialty getSpecialty() {
+        return specialty;
     }
 
-    public void setGender_Id(String gender_Id) {
-        Gender_Id = gender_Id;
+    public void setSpecialty(Specialty specialty) {
+        this.specialty = specialty;
     }
 }
 

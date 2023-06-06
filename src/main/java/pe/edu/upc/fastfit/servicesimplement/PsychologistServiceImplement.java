@@ -31,4 +31,15 @@ public class PsychologistServiceImplement implements IPsychologistService {
     public Psychologist listId(int idPsychologist) {
         return pR.findById(idPsychologist).orElse(new Psychologist());
     }
+
+    @Override
+    public List<Psychologist> findBySpecialtyPsico(String Specialty) {
+        return pR.findBySpecialtyPsico(Specialty);
+    }
+
+    @Override
+    public List<Psychologist> finByGender(String gender) {
+        return pR.finByGender(gender);
+    }
+
 }

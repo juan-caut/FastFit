@@ -1,43 +1,36 @@
-package pe.edu.upc.fastfit.dtos;
-import java.time.LocalDate;
+package pe.edu.upc.fastfit.entities;
 
-import pe.edu.upc.fastfit.entities.UserStatus;
-import pe.edu.upc.fastfit.entities.Gender;
-import pe.edu.upc.fastfit.entities.Specialty;
+import javax.persistence.*;
 
-
-public class PsychologistDTO {
-
-    private int idPsi;
-
+@Entity
+@Table(name = "client")
+public class Client {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @Column(name = "userName", length = 255, nullable = false)
     private String userName;
 
-    private String password;
-
+    @Column(name = "password", length = 255, nullable = false)
+    private  String password;
+    @Column(name = "names", length = 255, nullable = false)
     private String names;
-
+    @Column(name = "lastNames", length = 255, nullable = false)
     private String lastNames;
-
+    @Column(name = "emailAddress", length = 255, nullable = false)
     private String emailAddress;
-
+    @Column(name = "phoneNumber", length = 50, nullable = false)
     private String phoneNumber;
-
     private int age;
+    private int UserStatus_id;
+    private int Gender_id;
 
-    private int rating;
-    private UserStatus userStatus;
-
-    private Gender Gender;
-
-    private Specialty specialty;
-
-
-    public int getIdPsi() {
-        return idPsi;
+    public int getId() {
+        return id;
     }
 
-    public void setIdPsi(int idPsi) {
-        this.idPsi = idPsi;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUserName() {
@@ -96,35 +89,19 @@ public class PsychologistDTO {
         this.age = age;
     }
 
-    public int getRating() {
-        return rating;
+    public int getUserStatus_id() {
+        return UserStatus_id;
     }
 
-    public void setRating(int rating) {
-        this.rating = rating;
+    public void setUserStatus_id(int userStatus_id) {
+        UserStatus_id = userStatus_id;
     }
 
-    public UserStatus getUserStatus() {
-        return userStatus;
+    public int getGender_id() {
+        return Gender_id;
     }
 
-    public void setUserStatus(UserStatus userStatus) {
-        this.userStatus = userStatus;
-    }
-
-    public pe.edu.upc.fastfit.entities.Gender getGender() {
-        return Gender;
-    }
-
-    public void setGender(pe.edu.upc.fastfit.entities.Gender gender) {
-        Gender = gender;
-    }
-
-    public Specialty getSpecialty() {
-        return specialty;
-    }
-
-    public void setSpecialty(Specialty specialty) {
-        this.specialty = specialty;
+    public void setGender_id(int gender_id) {
+        Gender_id = gender_id;
     }
 }

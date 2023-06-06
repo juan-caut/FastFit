@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/Psychologists")
+@RequestMapping("/psychologists")
 public class PsychologistController {
 
     @Autowired
@@ -47,5 +47,20 @@ public class PsychologistController {
         ModelMapper m = new ModelMapper();
         Psychologist p = m.map(dto, Psychologist.class);
         pS.insert(p);
+    }
+
+    @PostMapping("/buscarPsicologoEspe")
+    public List<PsychologistDTO> findPsicoSpec(@RequestBody String Specialty) {
+        return pS.findBySpecialtyPsico(Specialty).stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, PsychologistDTO.class);
+        }).collect(Collectors.toList());
+    }
+    @PostMapping("/buscarporGender")
+    public List<PsychologistDTO> fndGenderPSY( String gender) {
+        return pS.finByGender(gender).stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, PsychologistDTO.class);
+        }).collect(Collectors.toList());
     }
 }
