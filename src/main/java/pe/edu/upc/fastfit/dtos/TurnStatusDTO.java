@@ -1,6 +1,5 @@
 package pe.edu.upc.fastfit.dtos;
 
-import javax.persistence.Column;
 
 public class TurnStatusDTO {
     private int idTurnstatus;
