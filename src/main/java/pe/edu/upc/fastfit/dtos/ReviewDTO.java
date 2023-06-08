@@ -46,15 +46,15 @@ public class ReviewDTO {
         return Client_id;
     }
 
-    public void setClient_id(int client_id) {
-        Client_id = client_id;
+    public void setClient_id(int Client_id) {
+        this.Client_id = Client_id;
     }
 
     public int getPsychologist_id() {
         return Psychologist_id;
     }
 
-    public void setPsychologist_id(int psychologist_id) {
-        Psychologist_id = psychologist_id;
+    public void setPsychologist_id(int Psychologist_id) {
+        this.Psychologist_id = Psychologist_id;
     }
 }
