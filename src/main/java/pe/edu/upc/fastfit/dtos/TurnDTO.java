@@ -38,16 +38,16 @@ public class TurnDTO {
         return TurnStatus_id;
     }
 
-    public void setTurnStatus_id(int turnStatus_id) {
-        TurnStatus_id = turnStatus_id;
+    public void setTurnStatus_id(int TurnStatus_id) {
+        this.TurnStatus_id = TurnStatus_id;
     }
 
     public int getPsychologist_id() {
         return Psychologist_id;
     }
 
-    public void setPsychologist_id(int psychologist_id) {
-        Psychologist_id = psychologist_id;
+    public void setPsychologist_id(int Psychologist_id) {
+        this.Psychologist_id = Psychologist_id;
     }
     
 }
