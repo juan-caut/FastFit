@@ -1,21 +1,16 @@
 package pe.edu.upc.fastfit.dtos;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
 public class AppointmentStatusDTO {
-    private int id;
+    private int idAppStatus;
     private String status;
     private String description;
 
-    public int getId() {
-        return id;
+    public int getIdAppStatus() {
+        return idAppStatus;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdAppStatus(int idAppStatus) {
+        this.idAppStatus = idAppStatus;
     }
 
     public String getStatus() {
