@@ -25,7 +25,7 @@ public class Psychologist {
     @Column(name = "rating", nullable = false)
     private int rating;
     @ManyToOne
-    @JoinColumn(name = "idUS", nullable = false)
+    @JoinColumn(name = "idUS")
     private UserStatus userStatus;
     @ManyToOne
     @JoinColumn(name = "idgender")

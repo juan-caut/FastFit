@@ -15,8 +15,10 @@ public interface IAppointmentRepository extends JpaRepository<Appointment, Integ
     List<Appointment> buscarid(@Param("startid") int startid, @Param("endid") int endid);
 
     //Leonardo LLiuya (2)
-    @Query("from Appointment v where v.date =:fecha")
-    List<Appointment> buscardate(@Param("fecha") LocalDate fecha);
+
+    @Query("SELECT a from Appointment  a where  a.date BETWEEN :startdate and :enddate")
+
+    List<Appointment> buscardate(@Param("startdate") LocalDate startdate,@Param("enddate") LocalDate enddate);
 
 
 }

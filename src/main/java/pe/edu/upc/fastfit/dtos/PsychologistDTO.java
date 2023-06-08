@@ -1,4 +1,5 @@
 package pe.edu.upc.fastfit.dtos;
+
 import java.time.LocalDate;
 
 import pe.edu.upc.fastfit.entities.UserStatus;
