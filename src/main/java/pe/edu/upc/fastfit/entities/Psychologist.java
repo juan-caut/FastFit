@@ -24,20 +24,22 @@ public class Psychologist {
     private int age;
     @Column(name = "rating", nullable = false)
     private int rating;
-    @Column(name = "UserStatus_Id", nullable = false)
-    private int UserStatus_Id;
     @ManyToOne
-    @JoinColumn(name = "idgender", nullable = false)
+    @JoinColumn(name = "idUS")
+    private UserStatus userStatus;
+    @ManyToOne
+    @JoinColumn(name = "idgender")
     private Gender gender;
 
     @ManyToOne
-    @JoinColumn(name = "idSpecialty", nullable = false)
+    @JoinColumn(name = "idSpecialty")
     private Specialty specialty;
 
     public Psychologist() {
+
     }
 
-    public Psychologist(int idPsi, String userName, String password, String names, String lastNames, String emailAddress, String phoneNumber, int age, int rating, int userStatus_Id, Gender gender, Specialty specialty) {
+    public Psychologist(int idPsi, String userName, String password, String names, String lastNames, String emailAddress, String phoneNumber, int age, int rating, UserStatus userStatus, Gender gender, Specialty specialty) {
         this.idPsi = idPsi;
         this.userName = userName;
         this.password = password;
@@ -47,7 +49,7 @@ public class Psychologist {
         this.phoneNumber = phoneNumber;
         this.age = age;
         this.rating = rating;
-        UserStatus_Id = userStatus_Id;
+        this.userStatus = userStatus;
         this.gender = gender;
         this.specialty = specialty;
     }
@@ -124,12 +126,12 @@ public class Psychologist {
         this.rating = rating;
     }
 
-    public int getUserStatus_Id() {
-        return UserStatus_Id;
+    public UserStatus getUserStatus() {
+        return userStatus;
     }
 
-    public void setUserStatus_Id(int userStatus_Id) {
-        UserStatus_Id = userStatus_Id;
+    public void setUserStatus(UserStatus userStatus) {
+        this.userStatus = userStatus;
     }
 
     public Gender getGender() {

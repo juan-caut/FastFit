@@ -1,6 +1,11 @@
 package pe.edu.upc.fastfit.dtos;
 
+import java.time.LocalDate;
+
+import pe.edu.upc.fastfit.entities.UserStatus;
+import pe.edu.upc.fastfit.entities.Gender;
 import pe.edu.upc.fastfit.entities.Specialty;
+
 
 public class PsychologistDTO {
 
@@ -21,12 +26,12 @@ public class PsychologistDTO {
     private int age;
 
     private int rating;
+    private UserStatus userStatus;
 
-    private int UserStatus_Id;
-
-    private String Gender_Id;
+    private Gender Gender;
 
     private Specialty specialty;
+
 
     public int getIdPsi() {
         return idPsi;
@@ -100,20 +105,20 @@ public class PsychologistDTO {
         this.rating = rating;
     }
 
-    public int getUserStatus_Id() {
-        return UserStatus_Id;
+    public UserStatus getUserStatus() {
+        return userStatus;
     }
 
-    public void setUserStatus_Id(int userStatus_Id) {
-        UserStatus_Id = userStatus_Id;
+    public void setUserStatus(UserStatus userStatus) {
+        this.userStatus = userStatus;
     }
 
-    public String getGender_Id() {
-        return Gender_Id;
+    public pe.edu.upc.fastfit.entities.Gender getGender() {
+        return Gender;
     }
 
-    public void setGender_Id(String gender_Id) {
-        Gender_Id = gender_Id;
+    public void setGender(pe.edu.upc.fastfit.entities.Gender gender) {
+        Gender = gender;
     }
 
     public Specialty getSpecialty() {

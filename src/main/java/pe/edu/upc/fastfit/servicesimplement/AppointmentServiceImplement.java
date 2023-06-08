@@ -41,7 +41,9 @@ aR.deleteById(idAppointment);
 
     @Override
     public List<Appointment> buscar_Fecha(LocalDate starDate) {
-        return aR.buscardate(starDate);
+        LocalDate endDate = starDate.plusDays(7); // Calcula la fecha de finalización sumando 7 días a la fecha de inicio
+
+        return aR.buscardate(starDate,endDate);
     }
 
 }
