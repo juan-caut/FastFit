@@ -5,28 +5,16 @@ import java.time.LocalDate;
 public class PaymentDTO {
 
     private int idPayment;
-
     private String paymentCode;
-
     private int idAppointment;
-
     private String cardNumber;
-
     private LocalDate date;
-
     private String currency;
-
     private float pago;
-
     private String name;
-
-
     private String lastname;
-
     private int  cvv;
-
     private LocalDate expiration;
-
     private String email;
 
     public int getIdPayment() {

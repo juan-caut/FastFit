@@ -30,7 +30,6 @@ public class UserStatusController {
         }).collect(Collectors.toList());
     }
 
-
     @DeleteMapping("/{id}")
     public void delete(@PathVariable("id") Integer id) {
         jH.delete(id);

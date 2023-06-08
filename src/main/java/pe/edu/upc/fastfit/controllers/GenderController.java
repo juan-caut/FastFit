@@ -44,7 +44,7 @@ public class GenderController {
         return dto;
     }
     @PutMapping
-    public void update(@RequestBody Gender dto) {
+    public void update(@RequestBody GenderDTO dto) {
         ModelMapper m = new ModelMapper();
         Gender p = m.map(dto, Gender.class);
         gS.insert(p);
