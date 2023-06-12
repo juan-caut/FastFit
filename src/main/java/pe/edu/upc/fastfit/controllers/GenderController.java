@@ -19,6 +19,7 @@ public class GenderController {
     @Autowired
     private IGenderService gS;
     @PostMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void insert(@RequestBody GenderDTO dto){
         ModelMapper m=new ModelMapper();
         Gender g=m.map(dto, Gender.class);
@@ -26,32 +27,26 @@ public class GenderController {
     }
     @GetMapping
     @PreAuthorize("hasAuthority('ADMIN')")
-    public List<GenderDTO> listar() {
+    public List<GenderDTO> list() {
         return gS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
             return m.map(x, GenderDTO.class);
         }).collect(Collectors.toList());
     }
-   /*@GetMapping
-    public List<GenderDTO> list(){
-        return gS.list().stream().map(x->{
-            ModelMapper m=new ModelMapper();
-            return m.map(x,GenderDTO.class);
-        }).collect(Collectors.toList());
-    }*/
-
-
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void delete(@PathVariable("id") Integer id) {
         gS.delete(id);
     }
     @GetMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public GenderDTO listId(@PathVariable("id") Integer id) {
         ModelMapper m = new ModelMapper();
         GenderDTO dto=m.map(gS.listId(id),GenderDTO.class);
         return dto;
     }
     @PutMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void update(@RequestBody GenderDTO dto) {
         ModelMapper m = new ModelMapper();
         Gender p = m.map(dto, Gender.class);
