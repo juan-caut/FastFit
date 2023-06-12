@@ -45,12 +45,16 @@ public class AppointmentController {
     }*/
     //agregado
     @DeleteMapping("/{id}")
+
+    @PreAuthorize("hasAuthority('USER')")
     public void delete(@PathVariable("id") Integer id) {
         aS.delete(id);
 
     }
 
     @GetMapping("/{id}")
+
+    //@PreAuthorize("hasAuthority('ADMIN')")
     public AppointmentDTO listId(@PathVariable("id") Integer id) {
         ModelMapper m = new ModelMapper();
         AppointmentDTO dto = m.map(aS.listId(id), AppointmentDTO.class);
@@ -58,12 +62,14 @@ public class AppointmentController {
     }
     //agregado
     @PutMapping
+    @PreAuthorize("hasAuthority('USER')")
     public void update(@RequestBody AppointmentDTO dto) {
         ModelMapper m = new ModelMapper();
         Appointment p = m.map(dto, Appointment.class);
         aS.insert(p);
     }
     @PostMapping("/buscarfecha")
+    @PreAuthorize("hasAuthority('USER')")
     public List<AppointmentDTO> buscarfecha(@RequestBody LocalDate startDate) {
         return aS.buscar_Fecha(startDate).stream().map(x -> {
             ModelMapper m = new ModelMapper();
@@ -77,7 +83,5 @@ public class AppointmentController {
             ModelMapper m = new ModelMapper();
             return m.map(x, AppointmentDTO.class);
         }).collect(Collectors.toList());
-
     }
-
 }
