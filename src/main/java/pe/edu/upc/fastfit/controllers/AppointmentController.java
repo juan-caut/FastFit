@@ -3,6 +3,7 @@ package pe.edu.upc.fastfit.controllers;
 import org.modelmapper.ModelMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.fastfit.dtos.AppointmentDTO;
 import pe.edu.upc.fastfit.entities.Appointment;
@@ -27,12 +28,21 @@ public class AppointmentController {
     }
 
     @GetMapping
-    public List<AppointmentDTO> list() {
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public List<AppointmentDTO> listar() {
         return aS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
             return m.map(x, AppointmentDTO.class);
         }).collect(Collectors.toList());
     }
+
+   /* @GetMapping
+    public List<AppointmentDTO> list() {
+        return aS.list().stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, AppointmentDTO.class);
+        }).collect(Collectors.toList());
+    }*/
     //agregado
     @DeleteMapping("/{id}")
     public void delete(@PathVariable("id") Integer id) {

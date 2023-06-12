@@ -2,6 +2,7 @@ package pe.edu.upc.fastfit.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.fastfit.dtos.GenderDTO;
 import pe.edu.upc.fastfit.dtos.PsychologistDTO;
@@ -23,14 +24,21 @@ public class GenderController {
         Gender g=m.map(dto, Gender.class);
         gS.insert(g);
     }
-
     @GetMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public List<GenderDTO> listar() {
+        return gS.list().stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, GenderDTO.class);
+        }).collect(Collectors.toList());
+    }
+   /*@GetMapping
     public List<GenderDTO> list(){
         return gS.list().stream().map(x->{
             ModelMapper m=new ModelMapper();
             return m.map(x,GenderDTO.class);
         }).collect(Collectors.toList());
-    }
+    }*/
 
 
     @DeleteMapping("/{id}")
