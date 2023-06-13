@@ -14,7 +14,7 @@ public interface UserRepository extends JpaRepository<Users,Long> {
     public int buscarUsername(@Param("username") String nombre);
 
     public Users findByUsername(String username);
-//Insertar los roles de cada entities
+
 @Transactional
     @Modifying
 @Query(value = "insert into roles (rol, user_id) VALUES (:rol, :user_id)", nativeQuery = true)
