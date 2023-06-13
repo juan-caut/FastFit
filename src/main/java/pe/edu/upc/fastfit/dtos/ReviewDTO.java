@@ -1,5 +1,8 @@
 package pe.edu.upc.fastfit.dtos;
 
+import pe.edu.upc.fastfit.entities.Client;
+import pe.edu.upc.fastfit.entities.Psychologist;
+
 import java.time.LocalDate;
 
 public class ReviewDTO {
@@ -7,8 +10,8 @@ public class ReviewDTO {
     private String content;
     private LocalDate date;
     private int likes;
-    private int Client_id;
-    private int Psychologist_id;
+    private Client client;
+    private Psychologist psychologist;
 
     public int getIdReview() {
         return idReview;
@@ -42,19 +45,19 @@ public class ReviewDTO {
         this.likes = likes;
     }
 
-    public int getClient_id() {
-        return Client_id;
+    public Client getClient() {
+        return client;
     }
 
-    public void setClient_id(int client_id) {
-        Client_id = client_id;
+    public void setClient(Client client) {
+        this.client = client;
     }
 
-    public int getPsychologist_id() {
-        return Psychologist_id;
+    public Psychologist getPsychologist() {
+        return psychologist;
     }
 
-    public void setPsychologist_id(int psychologist_id) {
-        Psychologist_id = psychologist_id;
+    public void setPsychologist(Psychologist psychologist) {
+        this.psychologist = psychologist;
     }
 }
