@@ -13,11 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-<<<<<<< HEAD
-@RequestMapping("/gender")
-=======
 @RequestMapping("/genders")
->>>>>>> feature/turnstatus
 public class GenderController {
     @Autowired
     private IGenderService gS;
