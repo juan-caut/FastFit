@@ -16,11 +16,11 @@ public class Gender {
 
 
 
-    public int getId() {
+    public int getIdGender() {
         return idGender;
     }
 
-    public void setId(int id) {
+    public void setIdGender(int id) {
         this.idGender = id;
     }
 

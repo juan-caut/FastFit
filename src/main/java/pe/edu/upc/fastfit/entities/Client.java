@@ -25,12 +25,12 @@ public class Client {
     private int UserStatus_id;
     private int Gender_id;
 
-    public int getId() {
+    public int getIdClient() {
         return idClient;
     }
 
-    public void setId(int id) {
-        this.idClient = id;
+    public void setIdClient(int idClient) {
+        this.idClient = idClient;
     }
 
     public String getUserName() {
