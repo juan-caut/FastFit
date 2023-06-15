@@ -32,23 +32,43 @@ public class ClientController {
             return m.map(x, ClientDTO.class);
         }).collect(Collectors.toList());
     }
+
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAuthority('ADMIN')")
-    public void delete(@PathVariable("id") Integer id){
+    public void delete(@PathVariable("id") Integer id) {
         cS.delete(id);
     }
+
     @GetMapping("/{id}")
     //@PreAuthorize("hasAuthority('ADMIN')")
-    public ClientDTO listId(@PathVariable("id")Integer id){
+    public ClientDTO listId(@PathVariable("id") Integer id) {
         ModelMapper m = new ModelMapper();
-        ClientDTO dto=m.map(cS.listId(id),ClientDTO.class);
+        ClientDTO dto = m.map(cS.listId(id), ClientDTO.class);
         return dto;
     }
+
     @PutMapping
-    public void update(@RequestBody ClientDTO dto){
+    public void update(@RequestBody ClientDTO dto) {
         ModelMapper m = new ModelMapper();
-        Client c=m.map(dto,Client.class);
+        Client c = m.map(dto, Client.class);
         cS.insert(c);
+    }
+
+    @PostMapping("/buscarEdad")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public List<ClientDTO> buscarEdad(int min, int max) {
+        return cS.findByAge(min, max).stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, ClientDTO.class);
+        }).collect(Collectors.toList());
+    }
+    @PostMapping("/buscarNombre")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public List<ClientDTO> buscarNombre(@RequestBody String name) {
+        return cS.findByName(name).stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, ClientDTO.class);
+        }).collect(Collectors.toList());
     }
 
 }

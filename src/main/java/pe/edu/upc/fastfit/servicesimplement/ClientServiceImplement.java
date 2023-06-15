@@ -33,4 +33,14 @@ public class ClientServiceImplement implements IClientService {
         return cR.findById(idClient).orElse(new Client());
     }
 
+    @Override
+    public List<Client> findByAge(int min, int max) {
+        return cR.findByAge(min,max);
+    }
+
+    @Override
+    public List<Client> findByName(String name) {
+        return cR.findByName(name);
+    }
+
 }

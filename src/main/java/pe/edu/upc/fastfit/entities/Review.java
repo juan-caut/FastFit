@@ -15,21 +15,24 @@ public class Review {
     private LocalDate date;
     @Column(name="likes",nullable = false)
     private int likes;
-    @Column(name="Client_id",nullable = false)
-    private int Client_id;
-    @Column(name="Psychologist_id",nullable = false)
-    private int Psychologist_id;
+    @ManyToOne
+    @JoinColumn(name = "idClient",nullable = false)
+    private Client client;
+    @ManyToOne
+    @JoinColumn(name = "idPsi",nullable = false)
+    private Psychologist psychologist;
+
 
     public Review(){
-
     }
-    public Review(int idReview, String content, LocalDate date, int likes, int client_id, int psychologist_id) {
+
+    public Review(int idReview, String content, LocalDate date, int likes, Client client, Psychologist psychologist) {
         this.idReview = idReview;
         this.content = content;
         this.date = date;
         this.likes = likes;
-        Client_id = client_id;
-        Psychologist_id = psychologist_id;
+        this.client = client;
+        this.psychologist = psychologist;
     }
 
     public int getIdReview() {
@@ -64,19 +67,19 @@ public class Review {
         this.likes = likes;
     }
 
-    public int getClient_id() {
-        return Client_id;
+    public Client getClient() {
+        return client;
     }
 
-    public void setClient_id(int Client_id) {
-        this.Client_id = Client_id;
+    public void setClient(Client client) {
+        this.client = client;
     }
 
-    public int getPsychologist_id() {
-        return Psychologist_id;
+    public Psychologist getPsychologist() {
+        return psychologist;
     }
 
-    public void setPsychologist_id(int Psychologist_id) {
-        this.Psychologist_id = Psychologist_id;
+    public void setPsychologist(Psychologist psychologist) {
+        this.psychologist = psychologist;
     }
 }

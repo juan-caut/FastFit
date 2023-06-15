@@ -10,4 +10,7 @@ public interface IClientService {
     public void delete(int idClient);
     public Client listId(int idClient);
 
+    List<Client> findByAge(int min,int max);
+    List<Client> findByName(String name);
+
 }

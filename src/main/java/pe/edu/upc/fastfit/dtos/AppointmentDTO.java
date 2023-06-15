@@ -3,6 +3,7 @@ package pe.edu.upc.fastfit.dtos;
 import pe.edu.upc.fastfit.entities.AppointmentStatus;
 import pe.edu.upc.fastfit.entities.Client;
 import pe.edu.upc.fastfit.entities.Psychologist;
+import pe.edu.upc.fastfit.entities.Turn;
 
 import java.time.LocalDate;
 
@@ -15,7 +16,7 @@ public class AppointmentDTO {
     private Psychologist psychologist;
 
     private AppointmentStatus appointmentStatus;
-
+    private Turn turn;
     //getters and setters
 
     public int getIdAppointment() {
@@ -56,5 +57,13 @@ public class AppointmentDTO {
 
     public void setAppointmentStatus(AppointmentStatus appointmentStatus) {
         this.appointmentStatus = appointmentStatus;
+    }
+
+    public Turn getTurn() {
+        return turn;
+    }
+
+    public void setTurn(Turn turn) {
+        this.turn = turn;
     }
 }

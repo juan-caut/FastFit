@@ -7,7 +7,7 @@ import javax.persistence.Id;
 
 public class ClientDTO {
 
-    private int id;
+    private int idClient;
 
     private String userName;
 
@@ -21,11 +21,11 @@ public class ClientDTO {
     private int gender;
 
     public int getId() {
-        return id;
+        return idClient;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.idClient = id;
     }
 
     public String getUserName() {

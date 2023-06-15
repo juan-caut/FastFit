@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int idClient;
     @Column(name = "userName", length = 255, nullable = false)
     private String userName;
 
@@ -29,11 +29,11 @@ public class Client {
 
 
     public int getId() {
-        return id;
+        return idClient;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.idClient = id;
     }
 
     public String getUserName() {
