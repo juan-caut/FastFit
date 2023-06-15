@@ -3,11 +3,11 @@ package pe.edu.upc.fastfit.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "gender")
+@Table(name = "genders")
 public class Gender {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  int id;
+    private  int idGender;
     @Column(name = "gender",length = 255,nullable = false)
     private String gender;
 
@@ -17,11 +17,11 @@ public class Gender {
 
 
     public int getId() {
-        return id;
+        return idGender;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.idGender = id;
     }
 
     public String getGender() {

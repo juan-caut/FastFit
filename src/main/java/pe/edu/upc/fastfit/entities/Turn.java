@@ -13,19 +13,22 @@ public class Turn {
     private LocalDate date;
     @Column(name="duration",nullable = false)
     private int duration;
-    @Column(name="TurnStatus_id",nullable = false)
-    private int TurnStatus_id;
-    @Column(name="Psychologist_id",nullable = false)
-    private int Psychologist_id;
+    @ManyToOne
+    @JoinColumn(name = "idTurnstatus",nullable = false)
+    private TurnStatus turnstatus;
+    @ManyToOne
+    @JoinColumn(name = "idPsi",nullable = false)
+    private Psychologist psychologist;
 
     public Turn(){
     }
-    public Turn(int idTurn, LocalDate date, int duration, int turnStatus_id, int psychologist_id) {
+
+    public Turn(int idTurn, LocalDate date, int duration, TurnStatus turnstatus, Psychologist psychologist) {
         this.idTurn = idTurn;
         this.date = date;
         this.duration = duration;
-        TurnStatus_id = turnStatus_id;
-        Psychologist_id = psychologist_id;
+        this.turnstatus = turnstatus;
+        this.psychologist = psychologist;
     }
 
     public int getIdTurn() {
@@ -52,19 +55,19 @@ public class Turn {
         this.duration = duration;
     }
 
-    public int getTurnStatus_id() {
-        return TurnStatus_id;
+    public TurnStatus getTurnstatus() {
+        return turnstatus;
     }
 
-    public void setTurnStatus_id(int turnStatus_id) {
-        TurnStatus_id = turnStatus_id;
+    public void setTurnstatus(TurnStatus turnstatus) {
+        this.turnstatus = turnstatus;
     }
 
-    public int getPsychologist_id() {
-        return Psychologist_id;
+    public Psychologist getPsychologist() {
+        return psychologist;
     }
 
-    public void setPsychologist_id(int psychologist_id) {
-        Psychologist_id = psychologist_id;
+    public void setPsychologist(Psychologist psychologist) {
+        this.psychologist = psychologist;
     }
 }

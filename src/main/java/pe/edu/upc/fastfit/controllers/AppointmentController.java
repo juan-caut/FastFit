@@ -3,6 +3,7 @@ package pe.edu.upc.fastfit.controllers;
 import org.modelmapper.ModelMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.fastfit.dtos.AppointmentDTO;
 import pe.edu.upc.fastfit.entities.Appointment;
@@ -27,20 +28,33 @@ public class AppointmentController {
     }
 
     @GetMapping
-    public List<AppointmentDTO> list() {
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public List<AppointmentDTO> listar() {
         return aS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
             return m.map(x, AppointmentDTO.class);
         }).collect(Collectors.toList());
     }
+
+   /* @GetMapping
+    public List<AppointmentDTO> list() {
+        return aS.list().stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, AppointmentDTO.class);
+        }).collect(Collectors.toList());
+    }*/
     //agregado
     @DeleteMapping("/{id}")
+
+    @PreAuthorize("hasAuthority('USER')")
     public void delete(@PathVariable("id") Integer id) {
         aS.delete(id);
 
     }
 
     @GetMapping("/{id}")
+
+    //@PreAuthorize("hasAuthority('ADMIN')")
     public AppointmentDTO listId(@PathVariable("id") Integer id) {
         ModelMapper m = new ModelMapper();
         AppointmentDTO dto = m.map(aS.listId(id), AppointmentDTO.class);
@@ -48,12 +62,14 @@ public class AppointmentController {
     }
     //agregado
     @PutMapping
+    @PreAuthorize("hasAuthority('USER')")
     public void update(@RequestBody AppointmentDTO dto) {
         ModelMapper m = new ModelMapper();
         Appointment p = m.map(dto, Appointment.class);
         aS.insert(p);
     }
     @PostMapping("/buscarfecha")
+    @PreAuthorize("hasAuthority('USER')")
     public List<AppointmentDTO> buscarfecha(@RequestBody LocalDate startDate) {
         return aS.buscar_Fecha(startDate).stream().map(x -> {
             ModelMapper m = new ModelMapper();
@@ -67,7 +83,5 @@ public class AppointmentController {
             ModelMapper m = new ModelMapper();
             return m.map(x, AppointmentDTO.class);
         }).collect(Collectors.toList());
-
     }
-
 }

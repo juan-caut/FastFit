@@ -2,6 +2,7 @@ package pe.edu.upc.fastfit.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.fastfit.dtos.AppointmentStatusDTO;
 import pe.edu.upc.fastfit.entities.AppointmentStatus;
@@ -17,6 +18,7 @@ public class AppointmentStatusController {
     private IAppointmentStatusService aS;
 
     @PostMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     private void insert(@RequestBody AppointmentStatusDTO dto) {
         ModelMapper m = new ModelMapper();
         AppointmentStatus a = m.map(dto, AppointmentStatus.class);
@@ -24,6 +26,7 @@ public class AppointmentStatusController {
     }
 
     @GetMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public List<AppointmentStatusDTO> list() {
         return aS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
@@ -33,11 +36,13 @@ public class AppointmentStatusController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void delete(@PathVariable("id") Integer id) {
         aS.delete(id);
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public AppointmentStatusDTO listId(@PathVariable("id") Integer id) {
         ModelMapper m = new ModelMapper();
         AppointmentStatusDTO dto = m.map(aS.listId(id), AppointmentStatusDTO.class);
@@ -45,6 +50,7 @@ public class AppointmentStatusController {
     }
 
     @PutMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void update(@RequestBody AppointmentStatusDTO dto) {
         ModelMapper m = new ModelMapper();
         AppointmentStatus a = m.map(dto, AppointmentStatus.class);
