@@ -9,5 +9,6 @@ public interface IClientService {
     List<Client> list();
     public void delete(int idClient);
     public Client listId(int idClient);
+    List<Client> byPsi(int idPsi);
 
 }

@@ -33,4 +33,10 @@ public class ClientServiceImplement implements IClientService {
         return cR.findById(idClient).orElse(new Client());
     }
 
+    @Override
+    public List<Client> byPsi(int idPsi) {
+        return cR.byPsi(idPsi);
+    }
+
+
 }
