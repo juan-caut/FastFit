@@ -14,4 +14,5 @@ public interface IPaymentService {
     public Payment listId(int idPayment);
 
     List<Payment> byPsi(int idPsi);
+    List<Payment> byCli(int idCli);
 }
