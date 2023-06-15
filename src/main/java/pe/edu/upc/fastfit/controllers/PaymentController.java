@@ -49,5 +49,11 @@ public class PaymentController {
         Payment p = m.map(dto, Payment.class);
         ps.insert(p);
     }
-
+    @PostMapping("/byPsi")
+    public List<PaymentDTO> byPsi(int idPsi) {
+        return ps.byPsi(idPsi).stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, PaymentDTO.class);
+        }).collect(Collectors.toList());
+    }
 }

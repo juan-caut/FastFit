@@ -33,4 +33,9 @@ public class PaymentServiceImplement implements IPaymentService {
     public Payment listId(int idPayment) {
         return pR.findById(idPayment).orElse(new Payment());
     }
+
+    @Override
+    public List<Payment> byPsi(int idPsi) {
+        return pR.byPsi(idPsi);
+    }
 }
