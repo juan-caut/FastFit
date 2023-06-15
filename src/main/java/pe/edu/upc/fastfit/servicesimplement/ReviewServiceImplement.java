@@ -33,4 +33,9 @@ public class ReviewServiceImplement implements IReviewService{
     public Review listId(int idReview) {
         return rR.findById(idReview).orElse(new Review());
     }
+
+    @Override
+    public List<Review> byPsi(int idPsi) {
+        return rR.byPsi(idPsi);
+    }
 }

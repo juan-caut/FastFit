@@ -10,6 +10,6 @@ import java.util.List;
 
 @Repository
 public interface IPaymentRepository extends JpaRepository<Payment, Integer> {
-    @Query("select p from Payment p where p.idAppointment in (select a.idAppointment from Appointment a where a.turn in (select t.idTurn from Turn t where t.psychologist.idPsi=:idPsi))")
+    @Query("select p from Payment p where p.idAppointment in (select a.idAppointment from Appointment a where a.turn.idTurn in (select t.idTurn from Turn t where t.psychologist.idPsi=:idPsi))")
     List<Payment> byPsi(@Param("idPsi")int idPsi);
 }

@@ -9,4 +9,5 @@ public interface IReviewService {
     List<Review> list();
     public void delete(int idReview);
     public Review listId(int idReview);
+    List<Review> byPsi(int idPsi);
 }
