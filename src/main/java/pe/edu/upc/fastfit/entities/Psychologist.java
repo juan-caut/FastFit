@@ -28,7 +28,7 @@ public class Psychologist {
     @JoinColumn(name = "idUS")
     private UserStatus userStatus;
     @ManyToOne
-    @JoinColumn(name = "idgender")
+    @JoinColumn(name = "idGender")
     private Gender gender;
 
     @ManyToOne

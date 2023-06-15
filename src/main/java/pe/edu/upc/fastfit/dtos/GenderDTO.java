@@ -5,11 +5,11 @@ public class GenderDTO {
     private  String gender;
     private String abbreviation;
 
-    public int getId() {
+    public int getIdGender() {
         return idGender;
     }
 
-    public void setId(int id) {
+    public void setIdGender(int id) {
         this.idGender = id;
     }
 
