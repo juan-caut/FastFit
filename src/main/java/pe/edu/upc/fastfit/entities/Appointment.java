@@ -21,16 +21,20 @@ public class Appointment {
     @ManyToOne
     @JoinColumn(name = "appointmentstatus")
     private AppointmentStatus appointmentstatus;
+    @ManyToOne
+    @JoinColumn(name = "turns")
+    private Turn turn;
 
     public Appointment() {
     }
 
-    public Appointment(int idAppointment, LocalDate date, Client client, Psychologist psychologist, AppointmentStatus appointmentStatus) {
+    public Appointment(int idAppointment, LocalDate date, Client client, Psychologist psychologist, AppointmentStatus appointmentstatus, Turn turn) {
         this.idAppointment = idAppointment;
         this.date = date;
         this.client = client;
         this.psychologist = psychologist;
-        this.appointmentstatus = appointmentStatus;
+        this.appointmentstatus = appointmentstatus;
+        this.turn = turn;
     }
 
     public int getIdAppointment() {
@@ -65,11 +69,19 @@ public class Appointment {
         this.psychologist = psychologist;
     }
 
-    public AppointmentStatus getAppointmentStatus() {
+    public AppointmentStatus getAppointmentstatus() {
         return appointmentstatus;
     }
 
-    public void setAppointmentStatus(AppointmentStatus appointmentStatus) {
-        this.appointmentstatus = appointmentStatus;
+    public void setAppointmentstatus(AppointmentStatus appointmentstatus) {
+        this.appointmentstatus = appointmentstatus;
+    }
+
+    public Turn getTurn() {
+        return turn;
+    }
+
+    public void setTurn(Turn turn) {
+        this.turn = turn;
     }
 }

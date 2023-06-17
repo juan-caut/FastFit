@@ -11,6 +11,7 @@ import java.util.List;
 @Repository
 public interface IClientRepository extends JpaRepository<Client,Integer>{
 
+
     @Query("from Client c where c.age between :min and :max")
     List<Client> findByAge(@Param("min") int min, @Param("max") int max);
 

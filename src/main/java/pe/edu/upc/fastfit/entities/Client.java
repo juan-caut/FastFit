@@ -23,7 +23,10 @@ public class Client {
     private String phoneNumber;
     private int age;
     private int UserStatus_id;
-    private int Gender_id;
+    @ManyToOne
+    @JoinColumn(name = "idgender")
+    private Gender gender;
+
 
     public int getId() {
         return idClient;
@@ -97,11 +100,11 @@ public class Client {
         UserStatus_id = userStatus_id;
     }
 
-    public int getGender_id() {
-        return Gender_id;
+    public Gender getGender() {
+        return gender;
     }
 
-    public void setGender_id(int gender_id) {
-        Gender_id = gender_id;
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 }

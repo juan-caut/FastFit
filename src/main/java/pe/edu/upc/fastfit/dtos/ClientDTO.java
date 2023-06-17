@@ -18,7 +18,7 @@ public class ClientDTO {
     private String phoneNumber;
     private int age;
     private int UserStatus_id;
-    private int Gender_id;
+    private int gender;
 
     public int getId() {
         return idClient;
@@ -92,11 +92,11 @@ public class ClientDTO {
         UserStatus_id = userStatus_id;
     }
 
-    public int getGender_id() {
-        return Gender_id;
+    public int getGender() {
+        return gender;
     }
 
-    public void setGender_id(int gender_id) {
-        Gender_id = gender_id;
+    public void setGender(int gender) {
+        this.gender = gender;
     }
 }
