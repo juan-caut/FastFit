@@ -57,7 +57,6 @@ public class ReviewDTO {
         return psychologist;
     }
 
-
     public void setPsychologist(Psychologist psychologist) {
         this.psychologist = psychologist;
     }
