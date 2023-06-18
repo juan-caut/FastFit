@@ -2,6 +2,7 @@ package pe.edu.upc.fastfit.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.fastfit.dtos.PaymentDTO;
 import pe.edu.upc.fastfit.entities.Payment;
@@ -17,13 +18,16 @@ public class PaymentController {
     private IPaymentService ps;
 
     @PostMapping
+    @PreAuthorize("hasAuthority('USER')")
     public void insert(@RequestBody PaymentDTO dto) {
         ModelMapper m = new ModelMapper();
         Payment p = m.map(dto, Payment.class);
         ps.insert(p);
     }
 
+
     @GetMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public List<PaymentDTO> list() {
         return ps.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
