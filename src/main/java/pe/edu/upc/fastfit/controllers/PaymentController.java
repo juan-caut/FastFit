@@ -56,4 +56,11 @@ public class PaymentController {
             return m.map(x, PaymentDTO.class);
         }).collect(Collectors.toList());
     }
+    @PostMapping("/byClient")
+    public List<PaymentDTO> byClient(int idClient) {
+        return ps.byCli(idClient).stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, PaymentDTO.class);
+        }).collect(Collectors.toList());
+    }
 }
