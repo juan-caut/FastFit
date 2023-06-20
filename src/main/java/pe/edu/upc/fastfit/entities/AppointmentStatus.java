@@ -13,6 +13,15 @@ public class AppointmentStatus {
     @Column(name = "description", length = 255, nullable = false)
     private String description;
 
+    public AppointmentStatus() {
+    }
+
+    public AppointmentStatus(int idAppStatus, String status, String description) {
+        this.idAppStatus = idAppStatus;
+        this.status = status;
+        this.description = description;
+    }
+
     public int getIdAppStatus() {
         return idAppStatus;
     }

@@ -21,12 +21,30 @@ public class Client {
     private String emailAddress;
     @Column(name = "phoneNumber", length = 50, nullable = false)
     private String phoneNumber;
+    @Column(name = "age", nullable = false)
     private int age;
-    private int UserStatus_id;
     @ManyToOne
-    @JoinColumn(name = "idgender")
+    @JoinColumn(name = "idUS")
+    private UserStatus userStatus;
+    @ManyToOne
+    @JoinColumn(name = "idgender", nullable = false)
     private Gender gender;
 
+    public Client() {
+    }
+
+    public Client(int idClient, String userName, String password, String names, String lastNames, String emailAddress, String phoneNumber, int age, UserStatus userStatus, Gender gender) {
+        this.idClient = idClient;
+        this.userName = userName;
+        this.password = password;
+        this.names = names;
+        this.lastNames = lastNames;
+        this.emailAddress = emailAddress;
+        this.phoneNumber = phoneNumber;
+        this.age = age;
+        this.userStatus = userStatus;
+        this.gender = gender;
+    }
 
     public int getIdClient() {
         return idClient;
@@ -92,12 +110,12 @@ public class Client {
         this.age = age;
     }
 
-    public int getUserStatus_id() {
-        return UserStatus_id;
+    public UserStatus getUserStatus() {
+        return userStatus;
     }
 
-    public void setUserStatus_id(int userStatus_id) {
-        UserStatus_id = userStatus_id;
+    public void setUserStatus(UserStatus userStatus) {
+        this.userStatus = userStatus;
     }
 
     public Gender getGender() {

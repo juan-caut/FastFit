@@ -18,7 +18,6 @@ public class AppointmentStatusController {
     private IAppointmentStatusService aS;
 
     @PostMapping
-    @PreAuthorize("hasAuthority('ADMIN')")
     private void insert(@RequestBody AppointmentStatusDTO dto) {
         ModelMapper m = new ModelMapper();
         AppointmentStatus a = m.map(dto, AppointmentStatus.class);

@@ -1,24 +1,22 @@
 package pe.edu.upc.fastfit.dtos;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import pe.edu.upc.fastfit.entities.Gender;
+import pe.edu.upc.fastfit.entities.UserStatus;
+
+import javax.persistence.*;
 
 public class ClientDTO {
-
     private int idClient;
-
     private String userName;
 
-    private String password;
+    private  String password;
     private String names;
     private String lastNames;
     private String emailAddress;
     private String phoneNumber;
     private int age;
-    private int UserStatus_id;
-    private int gender;
+    private UserStatus userStatus;
+    private Gender gender;
 
     public int getIdClient() {
         return idClient;
@@ -84,19 +82,19 @@ public class ClientDTO {
         this.age = age;
     }
 
-    public int getUserStatus_id() {
-        return UserStatus_id;
+    public UserStatus getUserStatus() {
+        return userStatus;
     }
 
-    public void setUserStatus_id(int userStatus_id) {
-        UserStatus_id = userStatus_id;
+    public void setUserStatus(UserStatus userStatus) {
+        this.userStatus = userStatus;
     }
 
-    public int getGender() {
+    public Gender getGender() {
         return gender;
     }
 
-    public void setGender(int gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 }
