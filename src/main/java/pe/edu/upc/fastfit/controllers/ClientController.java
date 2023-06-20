@@ -61,6 +61,15 @@ public class ClientController {
             return m.map(x, ClientDTO.class);
         }).collect(Collectors.toList());
     }
+
+    @PostMapping("/byPsi")
+    public List<ClientDTO> byPsi(int idPsi) {
+        return cS.byPsi(idPsi).stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, ClientDTO.class);
+        }).collect(Collectors.toList());
+    }
+
     @PostMapping("/buscarNombre")
     @PreAuthorize("hasAuthority('ADMIN')")
     public List<ClientDTO> buscarNombre(@RequestBody String name) {
@@ -70,4 +79,6 @@ public class ClientController {
         }).collect(Collectors.toList());
     }
 
+
 }
+

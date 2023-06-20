@@ -42,5 +42,8 @@ public class ClientServiceImplement implements IClientService {
     public List<Client> findByName(String name) {
         return cR.findByName(name);
     }
+    public List<Client> byPsi(int idPsi) {
+        return cR.byPsi(idPsi);
+    }
 
 }
