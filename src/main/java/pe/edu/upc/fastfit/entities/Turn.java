@@ -13,9 +13,8 @@ public class Turn {
     private LocalDate date;
     @Column(name="duration",nullable = false)
     private int duration;
-    @ManyToOne
-    @JoinColumn(name = "idTurnstatus",nullable = false)
-    private TurnStatus turnstatus;
+    @Column(name = "status",nullable = false)
+    private String status;
     @ManyToOne
     @JoinColumn(name = "idPsi",nullable = false)
     private Psychologist psychologist;
@@ -23,11 +22,11 @@ public class Turn {
     public Turn(){
     }
 
-    public Turn(int idTurn, LocalDate date, int duration, TurnStatus turnstatus, Psychologist psychologist) {
+    public Turn(int idTurn, LocalDate date, int duration, String status, Psychologist psychologist) {
         this.idTurn = idTurn;
         this.date = date;
         this.duration = duration;
-        this.turnstatus = turnstatus;
+        this.status = status;
         this.psychologist = psychologist;
     }
 
@@ -55,12 +54,12 @@ public class Turn {
         this.duration = duration;
     }
 
-    public TurnStatus getTurnstatus() {
-        return turnstatus;
+    public String getStatus() {
+        return status;
     }
 
-    public void setTurnstatus(TurnStatus turnstatus) {
-        this.turnstatus = turnstatus;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public Psychologist getPsychologist() {

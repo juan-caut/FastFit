@@ -1,10 +1,7 @@
 package pe.edu.upc.fastfit.dtos;
 
 import pe.edu.upc.fastfit.entities.Psychologist;
-import pe.edu.upc.fastfit.entities.TurnStatus;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import java.time.LocalDate;
 
 public class TurnDTO {
@@ -12,7 +9,7 @@ public class TurnDTO {
     private int idTurn;
     private LocalDate date;
     private int duration;
-    private TurnStatus turnstatus;
+    private String status;
     private Psychologist psychologist;
 
     public int getIdTurn() {
@@ -39,13 +36,12 @@ public class TurnDTO {
         this.duration = duration;
     }
 
-    public TurnStatus getTurnstatus() {
-        return turnstatus;
+    public String getStatus() {
+        return status;
     }
 
-
-    public void setTurnstatus(TurnStatus turnstatus) {
-        this.turnstatus = turnstatus;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public Psychologist getPsychologist() {
