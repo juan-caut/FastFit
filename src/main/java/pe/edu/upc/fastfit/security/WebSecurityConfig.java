@@ -58,6 +58,7 @@ public class WebSecurityConfig {
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/authenticate").permitAll() //.hasAuthority("ADMIN")
+                .antMatchers("/public/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint)
@@ -70,4 +71,6 @@ public class WebSecurityConfig {
 
         return httpSecurity.build();
     }
+
+
 }

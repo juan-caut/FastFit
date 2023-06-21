@@ -33,6 +33,7 @@ public class GenderController {
             return m.map(x, GenderDTO.class);
         }).collect(Collectors.toList());
     }
+
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAuthority('ADMIN')")
     public void delete(@PathVariable("id") Integer id) {

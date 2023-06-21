@@ -49,8 +49,8 @@ public class ReviewController {
         Review p = m.map(dto, Review.class);
         revS.insert(p);
     }
-    @PostMapping("/byPsi")
-    public List<ReviewDTO> byPsi(int idPsi) {
+    @PostMapping("/{idPsi}")
+    public List<ReviewDTO> byPsi(@PathVariable("idPsi") int idPsi) {
         return revS.byPsi(idPsi).stream().map(x -> {
             ModelMapper m = new ModelMapper();
             return m.map(x, ReviewDTO.class);
