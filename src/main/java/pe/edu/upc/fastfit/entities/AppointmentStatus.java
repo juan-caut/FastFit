@@ -26,8 +26,8 @@ public class AppointmentStatus {
         return idAppStatus;
     }
 
-    public void setIdAppStatus(int id) {
-        this.idAppStatus = id;
+    public void setIdAppStatus(int idAppStatus) {
+        this.idAppStatus = idAppStatus;
     }
 
     public String getStatus() {

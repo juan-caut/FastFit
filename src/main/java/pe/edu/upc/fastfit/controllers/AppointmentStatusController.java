@@ -15,36 +15,36 @@ import java.util.stream.Collectors;
 @RequestMapping("/appointmentstatus")
 public class AppointmentStatusController {
     @Autowired
-    private IAppointmentStatusService aS;
+    private IAppointmentStatusService revS;
 
     @PostMapping
-    private void insert(@RequestBody AppointmentStatusDTO dto) {
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public void insert(@RequestBody AppointmentStatusDTO dto) {
         ModelMapper m = new ModelMapper();
-        AppointmentStatus a = m.map(dto, AppointmentStatus.class);
-        aS.insert(a);
+        AppointmentStatus p = m.map(dto, AppointmentStatus.class);
+        revS.insert(p);
     }
 
     @GetMapping
     @PreAuthorize("hasAuthority('ADMIN')")
     public List<AppointmentStatusDTO> list() {
-        return aS.list().stream().map(x -> {
+        return revS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
             return m.map(x, AppointmentStatusDTO.class);
-
         }).collect(Collectors.toList());
     }
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAuthority('ADMIN')")
     public void delete(@PathVariable("id") Integer id) {
-        aS.delete(id);
+        revS.delete(id);
     }
 
     @GetMapping("/{id}")
     @PreAuthorize("hasAuthority('ADMIN')")
     public AppointmentStatusDTO listId(@PathVariable("id") Integer id) {
         ModelMapper m = new ModelMapper();
-        AppointmentStatusDTO dto = m.map(aS.listId(id), AppointmentStatusDTO.class);
+        AppointmentStatusDTO dto=m.map(revS.listId(id),AppointmentStatusDTO.class);
         return dto;
     }
 
@@ -52,8 +52,7 @@ public class AppointmentStatusController {
     @PreAuthorize("hasAuthority('ADMIN')")
     public void update(@RequestBody AppointmentStatusDTO dto) {
         ModelMapper m = new ModelMapper();
-        AppointmentStatus a = m.map(dto, AppointmentStatus.class);
-        aS.insert(a);
+        AppointmentStatus p = m.map(dto, AppointmentStatus.class);
+        revS.insert(p);
     }
-
 }

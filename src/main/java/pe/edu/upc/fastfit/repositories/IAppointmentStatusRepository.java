@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import pe.edu.upc.fastfit.entities.AppointmentStatus;
 
 @Repository
-public interface IAppointmentStatusRepository extends JpaRepository<AppointmentStatus,Integer> {
+public interface IAppointmentStatusRepository extends JpaRepository<AppointmentStatus, Integer> {
 
 }

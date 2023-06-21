@@ -8,7 +8,6 @@ import javax.persistence.*;
 public class ClientDTO {
     private int idClient;
     private String userName;
-
     private  String password;
     private String names;
     private String lastNames;

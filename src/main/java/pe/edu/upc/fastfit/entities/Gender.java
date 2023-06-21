@@ -20,6 +20,7 @@ public class Gender {
         return idGender;
     }
 
+
     public void setIdGender(int id) {
         this.idGender = id;
     }
