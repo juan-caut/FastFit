@@ -1,5 +1,6 @@
 package pe.edu.upc.fastfit.services;
 
+import pe.edu.upc.fastfit.dtos.ReportePagosDTO;
 import pe.edu.upc.fastfit.entities.Payment;
 
 import java.util.List;
@@ -15,4 +16,7 @@ public interface IPaymentService {
 
     List<Payment> byPsi(int idPsi);
     List<Payment> byCli(int idCli);
+
+    ReportePagosDTO reporte1();
+
 }

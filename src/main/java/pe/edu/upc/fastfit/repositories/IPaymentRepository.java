@@ -13,7 +13,13 @@ public interface IPaymentRepository extends JpaRepository<Payment, Integer> {
     @Query("select p from Payment p where p.idAppointment in (select a.idAppointment from Appointment a where a.turn.idTurn in (select t.idTurn from Turn t where t.psychologist.idPsi=:idPsi))")
     List<Payment> byPsi(@Param("idPsi")int idPsi);
 
-@Query("select p from Payment p where p.idAppointment in (select a.idAppointment from Appointment a where a.client.idClient=:idCli)")
+    @Query("select p from Payment p where p.idAppointment in (select a.idAppointment from Appointment a where a.client.idClient=:idCli)")
     List<Payment> byClient(@Param("idCli")int idCli);
+
+    @Query(value = "SELECT COUNT(*) FROM payment p WHERE p.date >= CURRENT_DATE - INTERVAL '30 days'", nativeQuery = true)
+    int totalPayment();
+
+    @Query(value = "SELECT SUM(p.pago) FROM payment p WHERE p.date >= CURRENT_DATE - INTERVAL '30 days';", nativeQuery = true)
+    int sumaPayment();
 
 }

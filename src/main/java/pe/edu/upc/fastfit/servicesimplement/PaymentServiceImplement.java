@@ -2,10 +2,12 @@ package pe.edu.upc.fastfit.servicesimplement;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pe.edu.upc.fastfit.dtos.ReportePagosDTO;
 import pe.edu.upc.fastfit.entities.Payment;
 import pe.edu.upc.fastfit.repositories.IPaymentRepository;
 import pe.edu.upc.fastfit.services.IPaymentService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -43,4 +45,19 @@ public class PaymentServiceImplement implements IPaymentService {
     public List<Payment> byCli(int idCli) {
         return pR.byClient(idCli);
     }
+
+    @Override
+    public ReportePagosDTO reporte1() {
+
+        int totalpago = pR.totalPayment();
+        float sumapago = pR.sumaPayment();
+
+        ReportePagosDTO reporte1 = new ReportePagosDTO();
+
+        reporte1.setTotalpago(totalpago);
+        reporte1.setMontototal(sumapago);
+
+        return reporte1;
+    }
+
 }
