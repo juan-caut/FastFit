@@ -4,6 +4,8 @@ import pe.edu.upc.fastfit.entities.UserStatus;
 import pe.edu.upc.fastfit.entities.Gender;
 import pe.edu.upc.fastfit.entities.Specialty;
 
+import java.time.LocalDate;
+
 public class PsychologistDTO {
 
     private int idPsi;
@@ -20,7 +22,7 @@ public class PsychologistDTO {
 
     private String phoneNumber;
 
-    private int age;
+    private LocalDate age;
 
     private int rating;
 
@@ -86,11 +88,11 @@ public class PsychologistDTO {
         this.phoneNumber = phoneNumber;
     }
 
-    public int getAge() {
+    public LocalDate getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(LocalDate age) {
         this.age = age;
     }
 

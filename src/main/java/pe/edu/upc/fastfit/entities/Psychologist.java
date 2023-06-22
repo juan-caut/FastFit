@@ -1,6 +1,7 @@
 package pe.edu.upc.fastfit.entities;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "Psychologists")
@@ -21,7 +22,7 @@ public class Psychologist {
     @Column(name = "phoneNumber", length = 9, nullable = false)
     private String phoneNumber;
     @Column(name = "age", nullable = false)
-    private int age;
+    private LocalDate age;
     @Column(name = "rating", nullable = false)
     private int rating;
     @ManyToOne
@@ -39,7 +40,7 @@ public class Psychologist {
 
     }
 
-    public Psychologist(int idPsi, String userName, String password, String names, String lastNames, String emailAddress, String phoneNumber, int age, int rating, UserStatus userStatus, Gender gender, Specialty specialty) {
+    public Psychologist(int idPsi, String userName, String password, String names, String lastNames, String emailAddress, String phoneNumber, LocalDate age, int rating, UserStatus userStatus, Gender gender, Specialty specialty) {
         this.idPsi = idPsi;
         this.userName = userName;
         this.password = password;
@@ -110,11 +111,11 @@ public class Psychologist {
         this.phoneNumber = phoneNumber;
     }
 
-    public int getAge() {
+    public LocalDate getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(LocalDate age) {
         this.age = age;
     }
 
