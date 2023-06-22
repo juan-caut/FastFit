@@ -9,15 +9,9 @@ public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idAppointment;
-
-    @Column(name = "date", nullable = false)
-    private LocalDate date;
     @ManyToOne
     @JoinColumn(name = "client")
     private Client client;
-    @ManyToOne
-    @JoinColumn(name = "Psychologists")
-    private Psychologist psychologist;
     @ManyToOne
     @JoinColumn(name = "appointmentstatus")
     private AppointmentStatus appointmentstatus;
@@ -30,9 +24,8 @@ public class Appointment {
 
     public Appointment(int idAppointment, LocalDate date, Client client, Psychologist psychologist, AppointmentStatus appointmentstatus, Turn turn) {
         this.idAppointment = idAppointment;
-        this.date = date;
+
         this.client = client;
-        this.psychologist = psychologist;
         this.appointmentstatus = appointmentstatus;
         this.turn = turn;
     }
@@ -45,13 +38,7 @@ public class Appointment {
         this.idAppointment = idAppointment;
     }
 
-    public LocalDate getDate() {
-        return date;
-    }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
 
     public Client getClient() {
         return client;
@@ -59,14 +46,6 @@ public class Appointment {
 
     public void setClient(Client client) {
         this.client = client;
-    }
-
-    public Psychologist getPsychologist() {
-        return psychologist;
-    }
-
-    public void setPsychologist(Psychologist psychologist) {
-        this.psychologist = psychologist;
     }
 
     public AppointmentStatus getAppointmentstatus() {

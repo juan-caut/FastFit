@@ -9,11 +9,10 @@ import java.time.LocalDate;
 
 public class AppointmentDTO {
     private int idAppointment;
-    private LocalDate date;
+
 
     private Client client;
 
-    private Psychologist psychologist;
 
     private AppointmentStatus appointmentStatus;
     private Turn turn;
@@ -27,14 +26,6 @@ public class AppointmentDTO {
         this.idAppointment = idAppointment;
     }
 
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
     public Client getClient() {
         return client;
     }
@@ -43,13 +34,6 @@ public class AppointmentDTO {
         this.client = client;
     }
 
-    public Psychologist getPsychologist() {
-        return psychologist;
-    }
-
-    public void setPsychologist(Psychologist psychologist) {
-        this.psychologist = psychologist;
-    }
 
     public AppointmentStatus getAppointmentStatus() {
         return appointmentStatus;

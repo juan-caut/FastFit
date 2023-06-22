@@ -26,7 +26,7 @@ public class AppointmentStatusController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')|| hasAnyAuthority('USER')")
     public List<AppointmentStatusDTO> list() {
         return revS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
@@ -41,7 +41,7 @@ public class AppointmentStatusController {
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('USER')|| hasAnyAuthority('ADMIN')")
     public AppointmentStatusDTO listId(@PathVariable("id") Integer id) {
         ModelMapper m = new ModelMapper();
         AppointmentStatusDTO dto=m.map(revS.listId(id),AppointmentStatusDTO.class);
