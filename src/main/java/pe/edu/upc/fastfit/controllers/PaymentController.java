@@ -27,7 +27,7 @@ public class PaymentController {
 
 
     @GetMapping
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')|| hasAuthority('USER')|| hasAuthority('PSICO')")
     public List<PaymentDTO> list() {
         return ps.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();

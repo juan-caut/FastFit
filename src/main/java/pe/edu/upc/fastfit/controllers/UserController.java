@@ -21,7 +21,7 @@ import javax.validation.Valid;
 @Controller
 @Secured({"ROLE_ADMIN"})
 @RequestMapping("/users")
-public class UserController {
+public class 	UserController {
 	@Autowired
 	private PasswordEncoder bcrypt;
 	@Autowired
