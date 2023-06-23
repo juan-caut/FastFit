@@ -18,6 +18,7 @@ public class ClientController {
     private IClientService cS;
 
     @PostMapping
+    @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
     public void insert(@RequestBody ClientDTO dto) {
         ModelMapper m = new ModelMapper();
         Client c = m.map(dto, Client.class);
@@ -25,7 +26,7 @@ public class ClientController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAuthority('ADMIN')|| hasAuthority('PSICO')")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'PSICO','USER')")
     public List<ClientDTO> list() {
         return cS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
@@ -55,7 +56,7 @@ public class ClientController {
     }
 
     @PostMapping("/buscarEdad")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
     public List<ClientDTO> buscarEdad(int min, int max) {
         return cS.findByAge(min, max).stream().map(x -> {
             ModelMapper m = new ModelMapper();
