@@ -47,17 +47,24 @@ public class PaymentServiceImplement implements IPaymentService {
     }
 
     @Override
-    public ReportePagosDTO reporte1() {
+    public List<ReportePagosDTO> repoPagos() {
 
-        int totalpago = pR.totalPayment();
-        float sumapago = pR.sumaPayment();
+        List<String[]> r1pagos = pR.r1Payment();
+        List<ReportePagosDTO> pagosDTOs = new ArrayList<>();
 
-        ReportePagosDTO reporte1 = new ReportePagosDTO();
+        for (String[] data : r1pagos) {
+            ReportePagosDTO dto = new ReportePagosDTO();
 
-        reporte1.setTotalpago(totalpago);
-        reporte1.setMontototal(sumapago);
+            dto.setMoneda(data[0]);
+            dto.setContador(Integer.parseInt(data[1]));
+            dto.setSumapago(Float.parseFloat(data[2]));
 
-        return reporte1;
+            pagosDTOs.add(dto);
+        }
+
+        return pagosDTOs;
+
     }
+
 
 }

@@ -2,30 +2,33 @@ package pe.edu.upc.fastfit.dtos;
 
 public class ReportePagosDTO {
 
-    private int totalpago;
-    private float montototal;
 
-    public ReportePagosDTO() {
+    private String moneda;
+    private int contador;
+    private float sumapago;
+
+
+    public String getMoneda() {
+        return moneda;
     }
 
-    public ReportePagosDTO(int totalpago, float montototal) {
-        this.totalpago = totalpago;
-        this.montototal = montototal;
+    public void setMoneda(String moneda) {
+        this.moneda = moneda;
     }
 
-    public int getTotalpago() {
-        return totalpago;
+    public int getContador() {
+        return contador;
     }
 
-    public void setTotalpago(int totalpago) {
-        this.totalpago = totalpago;
+    public void setContador(int contador) {
+        this.contador = contador;
     }
 
-    public float getMontototal() {
-        return montototal;
+    public float getSumapago() {
+        return sumapago;
     }
 
-    public void setMontototal(float montototal) {
-        this.montototal = montototal;
+    public void setSumapago(float sumapago) {
+        this.sumapago = sumapago;
     }
 }

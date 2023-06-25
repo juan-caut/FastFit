@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.fastfit.dtos.PaymentDTO;
+import pe.edu.upc.fastfit.dtos.ReportePagosDTO;
 import pe.edu.upc.fastfit.entities.Payment;
 import pe.edu.upc.fastfit.services.IPaymentService;
 
@@ -53,6 +54,7 @@ public class PaymentController {
         Payment p = m.map(dto, Payment.class);
         ps.insert(p);
     }
+
     @PostMapping("/byPsi")
     public List<PaymentDTO> byPsi(int idPsi) {
         return ps.byPsi(idPsi).stream().map(x -> {
@@ -67,6 +69,17 @@ public class PaymentController {
             return m.map(x, PaymentDTO.class);
         }).collect(Collectors.toList());
     }
+
+
+    @GetMapping("/rep1payment")
+    @PreAuthorize("hasAnyAuthority('ADMIN')")
+    public List<ReportePagosDTO> bycurrency() {
+        List<ReportePagosDTO> pagoDTOs = ps.repoPagos();
+        return pagoDTOs;
+    }
+
+
+
 
 
 
