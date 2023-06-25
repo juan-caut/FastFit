@@ -2,6 +2,7 @@ package pe.edu.upc.fastfit.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.fastfit.dtos.PsiSpecialtyDTO;
 import pe.edu.upc.fastfit.entities.Psychologist;
 import pe.edu.upc.fastfit.services.IPsychologistService;
 import pe.edu.upc.fastfit.dtos.PsychologistDTO;
@@ -62,5 +63,11 @@ public class PsychologistController {
             ModelMapper m = new ModelMapper();
             return m.map(x, PsychologistDTO.class);
         }).collect(Collectors.toList());
+    }
+
+    @GetMapping("/vaccine-count")
+    public List<PsiSpecialtyDTO> getPetCountByVaccine() {
+        List<PsiSpecialtyDTO> PsiSpecialtyDTOs = pS.reporte01();
+        return PsiSpecialtyDTOs;
     }
 }

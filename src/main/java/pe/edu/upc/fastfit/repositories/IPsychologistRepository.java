@@ -24,4 +24,10 @@ public interface IPsychologistRepository extends JpaRepository<Psychologist, Int
     @Query("from Psychologist v where v.age =:age")
     List<Psychologist> findByAgePsychologist(@Param("age") int age);
 
+    //reporte1
+    @Query(value = "SELECT v.names,count(p.id_specialty) from psychologists v \n" +
+            "            join specialties p on  v.id_specialty = p.id_specialty\n" +
+            "            group by v.names ORDER BY COUNT(v.names) DESC", nativeQuery = true)
+    List<String[]> getPetCountByVaccine();
+
 }

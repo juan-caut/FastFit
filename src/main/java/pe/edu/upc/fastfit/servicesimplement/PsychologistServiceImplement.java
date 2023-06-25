@@ -2,9 +2,12 @@ package pe.edu.upc.fastfit.servicesimplement;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pe.edu.upc.fastfit.dtos.PsiSpecialtyDTO;
 import pe.edu.upc.fastfit.entities.Psychologist;
 import pe.edu.upc.fastfit.repositories.IPsychologistRepository;
 import pe.edu.upc.fastfit.services.IPsychologistService;
+
+import java.util.ArrayList;
 import java.util.List;
 @Service
 public class PsychologistServiceImplement implements IPsychologistService {
@@ -45,6 +48,21 @@ public class PsychologistServiceImplement implements IPsychologistService {
     @Override
     public List<Psychologist> findByAgePsychologist(int Age) {
         return pR.findByAgePsychologist(Age);
+    }
+
+    @Override
+    public List<PsiSpecialtyDTO> reporte01() {
+        List<String[]> petCountByVaccine = pR.getPetCountByVaccine();
+        List<PsiSpecialtyDTO> PsiSpecialtyDTOs = new ArrayList<>();
+
+        for (String[] data : petCountByVaccine) {
+            PsiSpecialtyDTO dto = new PsiSpecialtyDTO();
+            dto.setSpecialtyName(data[0]);
+            dto.setSpeCount(Integer.parseInt(data[1]));
+            PsiSpecialtyDTOs.add(dto);
+        }
+
+        return PsiSpecialtyDTOs;
     }
 
 }

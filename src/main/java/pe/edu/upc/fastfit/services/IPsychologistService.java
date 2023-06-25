@@ -1,6 +1,7 @@
 package pe.edu.upc.fastfit.services;
 
 
+import pe.edu.upc.fastfit.dtos.PsiSpecialtyDTO;
 import pe.edu.upc.fastfit.entities.Psychologist;
 
 import java.util.List;
@@ -14,6 +15,10 @@ public interface IPsychologistService {
     List<Psychologist> findBySpecialtyPsico( String Specialty);
     List<Psychologist> finByGender( String gender);
     List<Psychologist> findByAgePsychologist(int Age);
+
+//reporte
+    public List<PsiSpecialtyDTO> reporte01();
+
 
 
 }
