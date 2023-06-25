@@ -1,5 +1,6 @@
 package pe.edu.upc.fastfit.services;
 
+import pe.edu.upc.fastfit.dtos.ReviewpsyDTO;
 import pe.edu.upc.fastfit.entities.Review;
 
 import java.util.List;
@@ -9,5 +10,5 @@ public interface IReviewService {
     List<Review> list();
     public void delete(int idReview);
     public Review listId(int idReview);
-    List<Review> byPsi(int idPsi);
+    List<ReviewpsyDTO> byPsi();
 }
