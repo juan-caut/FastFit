@@ -22,4 +22,5 @@ public interface IClientRepository extends JpaRepository<Client,Integer>{
 //join Appointment on Client.idClient=Appointment.client.idClient
     @Query(value = "select c from Client c where c.idClient in (select a.client from Appointment a where a.turn.psychologist=:idPsico)")
     List<Client> byPsi(@Param("idPsico") int idPsico);
+    //queries listos!!
 }
