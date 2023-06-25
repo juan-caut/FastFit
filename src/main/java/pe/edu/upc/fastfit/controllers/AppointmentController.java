@@ -20,6 +20,7 @@ public class AppointmentController {
 
 
     @PostMapping
+    @PreAuthorize("hasAuthority('USER')" )
     public void insert(@RequestBody AppointmentDTO dto) {
         ModelMapper m = new ModelMapper();
         Appointment p = m.map(dto, Appointment.class);

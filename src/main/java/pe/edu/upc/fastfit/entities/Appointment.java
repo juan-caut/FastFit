@@ -24,7 +24,6 @@ public class Appointment {
 
     public Appointment(int idAppointment, LocalDate date, Client client, Psychologist psychologist, AppointmentStatus appointmentstatus, Turn turn) {
         this.idAppointment = idAppointment;
-
         this.client = client;
         this.appointmentstatus = appointmentstatus;
         this.turn = turn;
@@ -37,7 +36,6 @@ public class Appointment {
     public void setIdAppointment(int idAppointment) {
         this.idAppointment = idAppointment;
     }
-
 
 
     public Client getClient() {

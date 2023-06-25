@@ -10,9 +10,7 @@ import java.time.LocalDate;
 public class AppointmentDTO {
     private int idAppointment;
 
-
     private Client client;
-
 
     private AppointmentStatus appointmentStatus;
     private Turn turn;
