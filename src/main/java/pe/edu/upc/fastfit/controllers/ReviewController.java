@@ -36,7 +36,7 @@ public class ReviewController {
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAnyAuthority('ADMIN')")
+    @PreAuthorize("hasAnyAuthority('USER')")
     public void delete(@PathVariable("id") Integer id) {
         revS.delete(id);
     }
