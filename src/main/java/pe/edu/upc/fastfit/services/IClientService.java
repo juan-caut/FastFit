@@ -1,5 +1,6 @@
 package pe.edu.upc.fastfit.services;
 
+import pe.edu.upc.fastfit.dtos.ClientStatsDTO;
 import pe.edu.upc.fastfit.entities.Client;
 
 import java.util.List;
@@ -13,5 +14,6 @@ public interface IClientService {
 
     List<Client> findByAge(int min,int max);
     List<Client> findByName(String name);
+    List<ClientStatsDTO> clientStats();
 
 }

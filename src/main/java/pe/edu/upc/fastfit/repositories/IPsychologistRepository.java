@@ -23,5 +23,12 @@ public interface IPsychologistRepository extends JpaRepository<Psychologist, Int
     //jhonatan huamani Salazar
     @Query("from Psychologist v where v.age =:age")
     List<Psychologist> findByAgePsychologist(@Param("age") int age);
+//report
+
+    @Query(value = "SELECT v.name,count(p.id_specialty) from specialties v \n" +
+            "            join psychologists p on  v.id_specialty = p.id_specialty \n" +
+            "            group by v.name ORDER BY COUNT(v.name) DESC", nativeQuery = true)
+    List<String[]> getSpecCountByPsi();
+
 
 }

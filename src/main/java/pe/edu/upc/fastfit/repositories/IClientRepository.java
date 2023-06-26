@@ -22,4 +22,11 @@ public interface IClientRepository extends JpaRepository<Client,Integer>{
 //join Appointment on Client.idClient=Appointment.client.idClient
     @Query(value = "select c from Client c where c.idClient in (select a.client from Appointment a where a.turn.psychologist=:idPsico)")
     List<Client> byPsi(@Param("idPsico") int idPsico);
+
+
+    @Query(value = "SELECT c.user_name,c.names,(select Count(*) from reviews where reviews.id_client=c.id_client) as countr,(select Count(*) from appointments where appointments.client=c.id_client) as counta\n"+
+            "from client c"
+            ,nativeQuery = true)
+    List<String[]>clientStats();
+
 }

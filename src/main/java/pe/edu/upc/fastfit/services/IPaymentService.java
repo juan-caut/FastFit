@@ -17,6 +17,6 @@ public interface IPaymentService {
     List<Payment> byPsi(int idPsi);
     List<Payment> byCli(int idCli);
 
-    ReportePagosDTO reporte1();
+    List<ReportePagosDTO> repoPagos();
 
 }
