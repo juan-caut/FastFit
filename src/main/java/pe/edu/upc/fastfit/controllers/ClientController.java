@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.fastfit.dtos.ClientDTO;
+import pe.edu.upc.fastfit.dtos.ClientStatsDTO;
 import pe.edu.upc.fastfit.entities.Client;
 import pe.edu.upc.fastfit.services.IClientService;
 
@@ -80,7 +81,12 @@ public class ClientController {
             return m.map(x, ClientDTO.class);
         }).collect(Collectors.toList());
     }
-
+    @GetMapping("/clientStats")
+    @PreAuthorize("hasAnyAuthority('ADMIN')")
+    public List<ClientStatsDTO> clientStats() {
+        List<ClientStatsDTO> clientsStats = cS.clientStats();
+        return clientsStats;
+    }
 
 }
 
