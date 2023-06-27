@@ -46,6 +46,14 @@ jobs:
         with:
           name: java-app
           path: target/
+          java-version: '8'
+          
+      - name: Build and deploy
+        env:
+          AZURE_WEBAPP_NAME: your-webapp-name
+          AZURE_WEBAPP_PACKAGE_PATH: target/*.jar
+        uses: azure/webapps-deploy@v2
+
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
