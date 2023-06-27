@@ -29,4 +29,11 @@ public class UserServiceImpl implements IUserService {
 		// TODO Auto-generated method stub
 		return uR.findAll();
 	}
+
+	@Override
+	public void insertarFinal(Users user) {
+		if(uR.buscarUsername(user.getUsername())==0) {
+			uR.save(user);
+		}
+	}
 }
