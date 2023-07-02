@@ -55,9 +55,9 @@ public class PaymentServiceImplement implements IPaymentService {
         for (String[] data : r1pagos) {
             ReportePagosDTO dto = new ReportePagosDTO();
 
-            dto.setMoneda(data[0]);
-            dto.setContador(Integer.parseInt(data[1]));
-            dto.setSumapago(Float.parseFloat(data[2]));
+            dto.setMoneda("hola");
+            dto.setContador(0);
+            dto.setSumapago(Float.parseFloat(data[0]));
 
             pagosDTOs.add(dto);
         }
