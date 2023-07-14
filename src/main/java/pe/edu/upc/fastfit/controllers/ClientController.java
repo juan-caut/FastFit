@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 public class ClientController {
     @Autowired
     private IClientService cS;
-
+  
     @PostMapping
     @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
     public void insert(@RequestBody ClientDTO dto) {
